@@ -135,7 +135,7 @@
 
       <!-- Hero Visual Image Frame -->
       <div class="hero-visual">
-        <div class="hero-img-card">
+        <div class="hero-img-card" id="interactiveHeroCard" onclick="app.squeezeBakpao(event)">
           <div class="glow-backdrop"></div>
           <img src="images/hero.png" alt="Bakpao Hangat Premium" class="hero-main-img" id="heroImg">
           <div class="visual-badge floating-badge-1">
@@ -144,6 +144,11 @@
           <div class="visual-badge floating-badge-2">
             <div class="stars">⭐⭐⭐⭐⭐</div>
             <span>"Adonannya paling lembut!"</span>
+          </div>
+
+          <!-- Interactive Click-me Squeeze Hint -->
+          <div class="squeeze-hint-badge">
+            <i class="fa-solid fa-hand-pointer pulse-icon"></i> Klik Foto & Uji Kelembutan!
           </div>
         </div>
       </div>
@@ -200,6 +205,52 @@
       <!-- Menu Grid -->
       <div class="products-grid" id="productsGrid">
         <!-- Dynamic Cards rendered via app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Custom Steamer Box Builder Section -->
+  <section class="custom-box-section" id="customBoxSection">
+    <div class="container">
+      <div class="custom-box-card">
+        <div class="custom-box-header text-center">
+          <span class="sub-title">FITUR INTERAKTIF</span>
+          <h2>📦 Bikin Custom Steamer Box Impianmu (Pilih 6 Varian)</h2>
+          <p>Kombinasikan 6 rasa Bakpao favoritmu sendiri ke dalam 1 Box Eksklusif!</p>
+        </div>
+
+        <div class="steamer-box-grid">
+          <!-- Steamer Visual Slots -->
+          <div class="steamer-visual">
+            <div class="steamer-lid-glow"></div>
+            <h4 class="steamer-title"><i class="fa-solid fa-box-open"></i> Isi Box Anda (<span id="boxFilledCount">0</span>/6 Pcs):</h4>
+            <div class="steamer-slots" id="steamerSlots">
+              <div class="slot-item empty"><i class="fa-solid fa-plus"></i> Slot 1</div>
+              <div class="slot-item empty"><i class="fa-solid fa-plus"></i> Slot 2</div>
+              <div class="slot-item empty"><i class="fa-solid fa-plus"></i> Slot 3</div>
+              <div class="slot-item empty"><i class="fa-solid fa-plus"></i> Slot 4</div>
+              <div class="slot-item empty"><i class="fa-solid fa-plus"></i> Slot 5</div>
+              <div class="slot-item empty"><i class="fa-solid fa-plus"></i> Slot 6</div>
+            </div>
+            <div class="steamer-footer-summary">
+              <div class="box-total-label">Total Harga Box: <strong id="boxTotalPrice" class="highlight-gold">Rp 0</strong></div>
+              <button class="btn btn-primary btn-block" id="addBoxToCartBtn" onclick="app.addCustomBoxToCart()" disabled>
+                <i class="fa-solid fa-cart-plus"></i> Masukkan Custom Box ke Keranjang
+              </button>
+              <button class="btn btn-secondary btn-sm" onclick="app.clearCustomBox()" style="margin-top:0.5rem; width:100%">
+                <i class="fa-solid fa-rotate"></i> Reset Pilihan Box
+              </button>
+            </div>
+          </div>
+
+          <!-- Flavor Quick Picker Grid -->
+          <div class="flavor-picker">
+            <h4>Pilih Bakpao untuk Masuk ke Box:</h4>
+            <div class="flavor-picker-grid" id="flavorPickerGrid">
+              <!-- Rendered via app.js -->
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

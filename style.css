@@ -682,6 +682,244 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
 }
 
+/* Squeeze Simulator & Hint Badge */
+.squeeze-hint-badge {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: linear-gradient(135deg, #DC2626, #EF4444);
+  color: white;
+  font-weight: 800;
+  font-size: 0.8rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+  z-index: 10;
+  cursor: pointer;
+  animation: bounceHint 2s infinite;
+}
+
+@keyframes bounceHint {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.squish-active {
+  animation: squishBun 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) !important;
+}
+
+@keyframes squishBun {
+  0% { transform: scale(1, 1); }
+  30% { transform: scale(1.15, 0.8); }
+  60% { transform: scale(0.9, 1.1); }
+  80% { transform: scale(1.05, 0.95); }
+  100% { transform: scale(1, 1); }
+}
+
+/* Custom Steamer Box Builder Section */
+.custom-box-section {
+  padding: 4rem 0;
+  background: radial-gradient(circle at center, rgba(245, 158, 11, 0.08) 0%, rgba(255, 253, 249, 0) 70%);
+}
+
+.custom-box-card {
+  background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+  border-radius: 28px;
+  border: 1px solid var(--glass-border);
+  padding: 3rem;
+  color: white;
+  box-shadow: var(--shadow-lg);
+}
+
+.custom-box-header .sub-title {
+  color: var(--primary);
+}
+
+.custom-box-header h2 {
+  color: white;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.custom-box-header p {
+  color: #94A3B8;
+  margin-bottom: 2rem;
+}
+
+.steamer-box-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.steamer-visual {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px dashed rgba(245, 158, 11, 0.4);
+  border-radius: 20px;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.steamer-title {
+  color: var(--primary);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.steamer-slots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.slot-item {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #94A3B8;
+  text-align: center;
+  padding: 0.5rem;
+  transition: var(--transition);
+  position: relative;
+}
+
+.slot-item.filled {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1.5px solid var(--primary);
+  color: white;
+  font-weight: 700;
+}
+
+.slot-item.filled img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 4px;
+}
+
+.slot-remove-btn {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #EF4444;
+  color: white;
+  border: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 0.65rem;
+  cursor: pointer;
+}
+
+.highlight-gold {
+  color: var(--primary);
+  font-size: 1.3rem;
+}
+
+.steamer-footer-summary {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1rem;
+}
+
+.box-total-label {
+  font-size: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.flavor-picker h4 {
+  font-size: 1.1rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.flavor-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.85rem;
+}
+
+.flavor-pick-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.flavor-pick-card:hover {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.flavor-pick-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.flavor-pick-info {
+  flex-grow: 1;
+}
+
+.flavor-pick-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+}
+
+.flavor-pick-price {
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+/* Product Meter Gauges */
+.meter-wrapper {
+  margin: 0.6rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.meter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.meter-track {
+  width: 100%;
+  height: 6px;
+  background: #E2E8F0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #F59E0B, #DC2626);
+  border-radius: 6px;
+}
+
 /* Product Cards Grid */
 .products-grid {
   display: grid;

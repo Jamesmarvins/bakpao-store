@@ -24,12 +24,14 @@ const products = [
     id: 2,
     name: "Bakpao Daging Sapi Lada Hitam",
     category: "gurih",
-    badge: "Favorite Chef",
+    badge: "Favorite Chef 🥩",
     badgeColor: "red",
     price: 15000,
-    rating: "4.8",
+    rating: "4.9",
+    fluffyScore: 98,
+    lavaScore: 95,
     steamLevel: "♨️♨️♨️ Extra Fluffy",
-    image: "images/hero.png",
+    image: "images/beef.png",
     desc: "Cincangan daging sapi tenderloin berpadu saus lada hitam gurih pedas hangat.",
     ingredients: "Daging Sapi Tenderloin Cincang, Lada Hitam Sarawak, Bawang Bombay, Mentega."
   },
@@ -41,6 +43,8 @@ const products = [
     badgeColor: "gold",
     price: 10000,
     rating: "4.9",
+    fluffyScore: 99,
+    lavaScore: 100,
     steamLevel: "♨️♨️♨️ Melted Lava",
     image: "images/chocolate.png",
     desc: "Isian Belgian Dark Chocolate 70% melimpah yang lumer seketika begitu digigit.",
@@ -54,6 +58,8 @@ const products = [
     badgeColor: "gold",
     price: 14000,
     rating: "5.0",
+    fluffyScore: 97,
+    lavaScore: 99,
     steamLevel: "♨️♨️♨️ Golden Lava",
     image: "images/salted_egg.png",
     desc: "Perpaduan unik telur asin gurih creaminess tinggi dan rasa manis lembut menggoda.",
@@ -67,8 +73,10 @@ const products = [
     badgeColor: "red",
     price: 15000,
     rating: "4.9",
+    fluffyScore: 96,
+    lavaScore: 98,
     steamLevel: "♨️♨️ Extra Cheesy",
-    image: "images/hero.png",
+    image: "images/cheese.png",
     desc: "Daging sapi asap premium dibalut keju Mozzarella mulur gurih sempurna.",
     ingredients: "Keju Mozzarella Premium, Daging Sapi Asap (Smoked Beef), Saus Keju."
   },
@@ -141,6 +149,18 @@ function renderProducts(items) {
         </div>
         <h3 class="product-title" onclick="app.showProductDetail(${p.id})" style="cursor:pointer">${p.name}</h3>
         <p class="product-desc">${p.desc}</p>
+        
+        <!-- Meter Gauge Kelembutan & Kelumeran -->
+        <div class="meter-wrapper">
+          <div class="meter-row">
+            <span>🌾 Kelembutan Adonan</span>
+            <span>${p.fluffyScore || 98}% Fluffy</span>
+          </div>
+          <div class="meter-track">
+            <div class="meter-fill" style="width: ${p.fluffyScore || 98}%"></div>
+          </div>
+        </div>
+
         <div class="product-price-row">
           <div class="product-price">Rp ${p.price.toLocaleString('id-ID')}</div>
           <button class="add-cart-btn" onclick="app.addToCart(${p.id})" title="Tambah ke Keranjang">
@@ -469,6 +489,181 @@ function resetQuiz() {
   document.getElementById("quizStep1").classList.remove("d-none");
 }
 
+/* Squeeze Simulator */
+function squeezeBakpao(e) {
+  const card = document.getElementById("interactiveHeroCard");
+  if (!card) return;
+
+  card.classList.remove("squish-active");
+  void card.offsetWidth; // trigger reflow
+  card.classList.add("squish-active");
+
+  // Create floating toast
+  const toast = document.createElement("div");
+  toast.innerHTML = "💨 <strong>Super Soft & Fluffy!</strong>";
+  toast.style.cssText = `
+    position: fixed;
+    top: ${e.clientY - 40}px;
+    left: ${e.clientX - 60}px;
+    background: #F59E0B;
+    color: #0F172A;
+    padding: 0.4rem 0.85rem;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    pointer-events: none;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.8s ease;
+  `;
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.style.transform = "translateY(-30px)";
+    toast.style.opacity = "0";
+  }, 50);
+
+  setTimeout(() => {
+    document.body.removeChild(toast);
+  }, 900);
+}
+
+/* Custom Steamer Box Builder State & Logic */
+let customBoxItems = [];
+
+function initCustomBoxBuilder() {
+  renderFlavorPicker();
+  updateSteamerBoxUI();
+}
+
+function renderFlavorPicker() {
+  const container = document.getElementById("flavorPickerGrid");
+  if (!container) return;
+
+  // Filter single products (exclude box item id 99)
+  const singleProducts = products.filter(p => p.id !== 99);
+
+  container.innerHTML = singleProducts.map(p => `
+    <div class="flavor-pick-card" onclick="app.addFlavorToBox(${p.id})">
+      <img src="${p.image}" alt="${p.name}" class="flavor-pick-img">
+      <div class="flavor-pick-info">
+        <div class="flavor-pick-name">${p.name}</div>
+        <div class="flavor-pick-price">+ Rp ${p.price.toLocaleString('id-ID')}</div>
+      </div>
+      <i class="fa-solid fa-circle-plus" style="color:var(--primary); font-size:1.2rem;"></i>
+    </div>
+  `).join('');
+}
+
+function addFlavorToBox(id) {
+  if (customBoxItems.length >= 6) {
+    alert("Box sudah penuh (Maksimal 6 Pcs Bakpao)! Anda bisa mereset atau menghapus slot untuk mengganti varian.");
+    return;
+  }
+
+  const p = products.find(prod => prod.id === id);
+  if (!p) return;
+
+  customBoxItems.push(p);
+  updateSteamerBoxUI();
+}
+
+function removeBoxSlot(index) {
+  customBoxItems.splice(index, 1);
+  updateSteamerBoxUI();
+}
+
+function clearCustomBox() {
+  customBoxItems = [];
+  updateSteamerBoxUI();
+}
+
+function updateSteamerBoxUI() {
+  const slotsContainer = document.getElementById("steamerSlots");
+  const countEl = document.getElementById("boxFilledCount");
+  const priceEl = document.getElementById("boxTotalPrice");
+  const submitBtn = document.getElementById("addBoxToCartBtn");
+
+  if (!slotsContainer) return;
+
+  if (countEl) countEl.innerText = customBoxItems.length;
+
+  const totalPrice = customBoxItems.reduce((sum, p) => sum + p.price, 0);
+  if (priceEl) priceEl.innerText = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+
+  if (submitBtn) {
+    submitBtn.disabled = customBoxItems.length !== 6;
+    if (customBoxItems.length === 6) {
+      submitBtn.innerHTML = `<i class="fa-solid fa-cart-plus"></i> Masukkan Custom Box (Rp ${totalPrice.toLocaleString('id-ID')}) ke Keranjang`;
+    } else {
+      submitBtn.innerHTML = `<i class="fa-solid fa-plus"></i> Tambah ${6 - customBoxItems.length} Pcs Lagi untuk Selesaikan Box`;
+    }
+  }
+
+  // Render 6 Slots
+  let html = '';
+  for (let i = 0; i < 6; i++) {
+    if (i < customBoxItems.length) {
+      const item = customBoxItems[i];
+      html += `
+        <div class="slot-item filled">
+          <button class="slot-remove-btn" onclick="app.removeBoxSlot(${i})" title="Hapus">&times;</button>
+          <img src="${item.image}" alt="${item.name}">
+          <span>${item.name.replace('Bakpao ', '')}</span>
+        </div>
+      `;
+    } else {
+      html += `
+        <div class="slot-item empty">
+          <i class="fa-solid fa-plus" style="margin-bottom:4px; opacity:0.5"></i>
+          <span>Slot ${i + 1}</span>
+        </div>
+      `;
+    }
+  }
+
+  slotsContainer.innerHTML = html;
+}
+
+function addCustomBoxToCart() {
+  if (customBoxItems.length !== 6) {
+    alert("Silakan pilih 6 varian bakpao untuk menyelesaikan custom box Anda.");
+    return;
+  }
+
+  const names = customBoxItems.map(p => p.name.replace('Bakpao ', '')).join(', ');
+  const totalPrice = customBoxItems.reduce((sum, p) => sum + p.price, 0);
+
+  const customBoxProduct = {
+    id: Date.now(), // unique id
+    name: `Custom Steamer Box (6 Pcs: ${names})`,
+    category: "paket",
+    badge: "Custom Mix 📦",
+    badgeColor: "gold",
+    price: totalPrice,
+    rating: "5.0",
+    image: "images/chocolate.png",
+    desc: `Pilihan rasa Anda: ${names}`,
+    qty: 1
+  };
+
+  cart.push(customBoxProduct);
+  updateCartUI();
+
+  // Reset custom box
+  customBoxItems = [];
+  updateSteamerBoxUI();
+
+  // Open Cart Drawer
+  document.getElementById("cartDrawer").classList.add("active");
+  document.getElementById("cartOverlay").classList.add("active");
+}
+
+// Call Custom Box Builder on DOM load
+document.addEventListener("DOMContentLoaded", () => {
+  initCustomBoxBuilder();
+});
+
 // Export global app helper
 window.app = {
   addToCart,
@@ -479,5 +674,10 @@ window.app = {
   showProductDetail,
   selectQuizOpt,
   finishQuiz,
-  resetQuiz
+  resetQuiz,
+  squeezeBakpao,
+  addFlavorToBox,
+  removeBoxSlot,
+  clearCustomBox,
+  addCustomBoxToCart
 };
