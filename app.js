@@ -443,12 +443,12 @@ function showProductDetail(id) {
       <img src="${p.image}" alt="${p.name}" style="width:100%; border-radius:16px; object-fit:cover;">
       <div>
         <span class="card-badge ${p.badgeColor}" style="position:static">${p.badge}</span>
-        <h2 style="margin: 0.5rem 0; font-size:1.5rem; color:#0F172A">${p.name}</h2>
-        <p style="color:#64748B; font-size:0.9rem; margin-bottom: 1rem">${p.desc}</p>
-        <div style="background:#FEF3C7; padding: 0.75rem; border-radius: 10px; font-size:0.85rem; color:#92400E; margin-bottom: 1rem;">
+        <h2 style="margin: 0.75rem 0 0.4rem; font-size:1.5rem; color:#FFFFFF">${p.name}</h2>
+        <p style="color:#CBD5E1; font-size:0.9rem; margin-bottom: 1.2rem; line-height:1.5">${p.desc}</p>
+        <div style="background:rgba(245, 158, 11, 0.12); border:1px solid rgba(245, 158, 11, 0.3); padding: 0.85rem; border-radius: 12px; font-size:0.85rem; color:#FCD34D; margin-bottom: 1.2rem;">
           <strong>🌱 Bahan Utama:</strong> ${p.ingredients}
         </div>
-        <div style="font-size:1.4rem; font-weight:800; color:#0F172A; margin-bottom: 1rem">
+        <div style="font-size:1.5rem; font-weight:800; color:#F59E0B; margin-bottom: 1.2rem">
           Rp ${p.price.toLocaleString('id-ID')}
         </div>
         <button class="btn btn-primary btn-block" onclick="app.addToCart(${p.id}); document.getElementById('productModalOverlay').classList.remove('active');">
@@ -485,12 +485,12 @@ function finishQuiz(timing) {
   }
 
   resultContainer.innerHTML = `
-    <div style="text-align:center; padding: 1rem;">
+    <div style="text-align:center; padding: 1.2rem 1rem;">
       <span style="font-size: 3rem">🎉</span>
-      <h3 style="color:#0F172A; margin: 0.5rem 0;">Bakpao Terbaik Untukmu:</h3>
-      <h2 style="color:#D97706; font-size:1.8rem; margin-bottom:0.5rem">${recommended.name}</h2>
-      <p style="color:#64748B; max-width:500px; margin: 0 auto 1.5rem">${recommended.desc}</p>
-      <div style="display:flex; justify-content:center; gap: 1rem">
+      <h3 style="color:#F8FAFC; font-size:1.15rem; margin: 0.6rem 0 0.3rem; opacity:0.9">Bakpao Terbaik Untukmu:</h3>
+      <h2 style="color:#F59E0B; font-size:2rem; font-weight:800; margin-bottom:0.75rem">${recommended.name}</h2>
+      <p style="color:#CBD5E1; font-size:0.95rem; max-width:520px; margin: 0 auto 1.75rem; line-height:1.6">${recommended.desc}</p>
+      <div style="display:flex; justify-content:center; gap: 1rem; flex-wrap:wrap">
         <button class="btn btn-primary" onclick="app.addToCart(${recommended.id})">
           <i class="fa-solid fa-cart-plus"></i> Pesan Bakpao Ini Now
         </button>
