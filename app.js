@@ -700,6 +700,41 @@ function initLiveSalesToast() {
   setInterval(showNextToast, 18000);
 }
 
+// QRIS Payment Modal Viewer
+function showQrisModal() {
+  const body = document.getElementById("modalDetailBody");
+  const modal = document.getElementById("productModalOverlay");
+  if (!body || !modal) return;
+
+  body.innerHTML = `
+    <div style="text-align:center; padding: 2rem 1.5rem;">
+      <span class="card-badge gold" style="position:static">QRIS ALL PAYMENT</span>
+      <h2 style="color:#FFF; font-size:1.6rem; margin:0.8rem 0 0.4rem">Scan QRIS Untuk Pembayaran</h2>
+      <p style="color:#94A3B8; font-size:0.9rem; margin-bottom: 1.5rem">Mendukung GoPay, OVO, ShopeePay, DANA, BCA, Mandiri, BRI & Seluruh Aplikasi M-Banking</p>
+      
+      <div style="background:#FFF; padding: 1.25rem; border-radius:20px; display:inline-block; box-shadow:0 10px 30px rgba(0,0,0,0.5); margin-bottom: 1.5rem;">
+        <svg width="180" height="180" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="100" fill="#FFF"/>
+          <path d="M10 10H40V40H10V10ZM15 15V35H35V15H15Z" fill="#0F172A"/>
+          <path d="M20 20H30V30H20V20Z" fill="#F59E0B"/>
+          <path d="M60 10H90V40H60V10ZM65 15V35H85V15H65Z" fill="#0F172A"/>
+          <path d="M70 20H80V30H70V20Z" fill="#F59E0B"/>
+          <path d="M10 60H40V90H10V60ZM15 65V85H35V65H15Z" fill="#0F172A"/>
+          <path d="M20 70H30V80H20V70Z" fill="#F59E0B"/>
+          <rect x="50" y="50" width="12" height="12" fill="#0F172A"/>
+          <rect x="70" y="50" width="15" height="8" fill="#0F172A"/>
+          <rect x="50" y="70" width="18" height="15" fill="#0F172A"/>
+          <rect x="75" y="75" width="15" height="15" fill="#F59E0B"/>
+        </svg>
+      </div>
+
+      <p style="color:#FCD34D; font-size:0.85rem; font-weight:700">📌 Setelah scan & transfer, kirimkan bukti bayar via WhatsApp CS.</p>
+    </div>
+  `;
+
+  modal.classList.add("active");
+}
+
 // Export global app helper
 window.app = {
   addToCart,
@@ -715,5 +750,6 @@ window.app = {
   addFlavorToBox,
   removeBoxSlot,
   clearCustomBox,
-  addCustomBoxToCart
+  addCustomBoxToCart,
+  showQrisModal
 };

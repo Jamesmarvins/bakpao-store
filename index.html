@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bao Gourmet — Bakpao Premium Soft & Fluffy | Fresh Setiap Hari</title>
   <meta name="description" content="Nikmati kelembutan sempurna Bakpao Artisan dengan isian melimpah, lumer, dan 100% Halal. Pesan hangat langsung via WhatsApp!">
+  <!-- Favicon Bakpao -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23151D2A' stroke='%23F59E0B' stroke-width='4'/><path d='M25 58C25 42 36 30 50 30C64 30 75 42 75 58C75 64 64 68 50 68C36 68 25 64 25 58Z' fill='%23FFFDF9' stroke='%23D97706' stroke-width='3'/></svg>">
+  
+  <!-- OpenGraph WhatsApp & Medsos Share Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bao Gourmet — Bakpao Premium Soft & Fluffy (100% Halal)">
+  <meta property="og:description" content="Nikmati kelembutan sempurna Bakpao Artisan dengan isian melimpah & lumer. Diukus fresh setiap hari! Pesan langsung via WhatsApp.">
+  <meta property="og:image" content="images/hero.png">
+  <meta name="twitter:card" content="summary_large_image">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
@@ -431,12 +441,15 @@
     <div class="container text-center">
       <span class="sub-title" style="margin-bottom:1rem">JAMINAN KEAMANAN PEMBAYARAN & PENGIRIMAN</span>
       <div class="partners-grid">
-        <div class="partner-tag"><i class="fa-solid fa-qrcode"></i> QRIS</div>
+        <div class="partner-tag" onclick="app.showQrisModal()" style="cursor:pointer" title="Klik untuk lihat QRIS"><i class="fa-solid fa-qrcode"></i> QRIS (Semua E-Wallet)</div>
         <div class="partner-tag"><i class="fa-solid fa-building-columns"></i> BCA / Mandiri</div>
         <div class="partner-tag"><i class="fa-solid fa-mobile-screen"></i> GoPay / OVO</div>
         <div class="partner-tag"><i class="fa-solid fa-motorcycle"></i> GoSend / Grab</div>
         <div class="partner-tag"><i class="fa-solid fa-snowflake"></i> Paxel Frozen</div>
       </div>
+      <button class="btn btn-secondary btn-sm" onclick="app.showQrisModal()" style="margin-top:1.2rem">
+        <i class="fa-solid fa-qrcode"></i> Tampilkan QRIS Pembayaran
+      </button>
     </div>
   </section>
 
