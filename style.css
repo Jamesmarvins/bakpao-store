@@ -1517,7 +1517,119 @@ h1, h2, h3, h4 {
   border-color: var(--primary-glow);
 }
 
-/* Modal Popup */
+/* FAQ Section */
+.faq-section {
+  padding: 5rem 0;
+  background: rgba(255,255,255,0.015);
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+}
+
+.faq-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 1.8rem;
+  transition: var(--transition);
+}
+
+.faq-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-4px);
+}
+
+.faq-card h4 {
+  font-size: 1.05rem;
+  color: #FFF;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.faq-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Payment & Shipping Partners Bar */
+.partners-bar {
+  padding: 3rem 0;
+  background: #070A11;
+  border-top: 1px solid var(--border-glass);
+}
+
+.partners-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.partner-tag {
+  background: var(--bg-card);
+  color: #FFF;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.partner-tag i {
+  color: var(--primary);
+}
+
+/* Live Sales Toast Notification */
+.sales-toast-container {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1.5px solid var(--primary);
+  border-radius: 18px;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  z-index: 995;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.sales-toast-container.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sales-toast-avatar {
+  font-size: 1.8rem;
+}
+
+.sales-toast-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--primary-glow);
+}
+
+.sales-toast-desc {
+  font-size: 0.8rem;
+  color: #F8FAFC;
+}
+
 .modal-overlay {
   position: fixed;
   top: 0;

@@ -118,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSteamParticles();
   initEventListeners();
   updateCartUI();
+  initLiveSalesToast();
 });
 
 // Render Products Grid
@@ -663,6 +664,41 @@ function addCustomBoxToCart() {
 document.addEventListener("DOMContentLoaded", () => {
   initCustomBoxBuilder();
 });
+
+// Live Sales Toast Simulation
+function initLiveSalesToast() {
+  const toast = document.getElementById("salesToast");
+  const title = document.getElementById("toastTitle");
+  const desc = document.getElementById("toastDesc");
+  if (!toast || !title || !desc) return;
+
+  const names = ["Sdr. Budi (Jakarta)", "Sdr. Anita (Bandung)", "Sdr. Rian (Surabaya)", "Sdr. Melisa (Tangerang)", "Sdr. Hendra (Semarang)", "Sdr. Claudia (Bekasi)"];
+  const orders = [
+    "memesan 6x Bakpao Ayam Char Siu!",
+    "memesan 1x Family Box (6 Varian Mix)!",
+    "memesan 4x Bakpao Cokelat Belgian Lava!",
+    "memesan 3x Bakpao Salted Egg Custard!",
+    "memesan 5x Bakpao Mozzarella Beef!"
+  ];
+
+  function showNextToast() {
+    const randomName = names[Math.floor(Math.random() * names.length)];
+    const randomOrder = orders[Math.floor(Math.random() * orders.length)];
+
+    title.innerText = "🔥 BARU SAJA DIPESAN!";
+    desc.innerText = `${randomName} ${randomOrder}`;
+
+    toast.classList.add("active");
+
+    setTimeout(() => {
+      toast.classList.remove("active");
+    }, 4500);
+  }
+
+  // First toast after 6 seconds, then repeat every 18 seconds
+  setTimeout(showNextToast, 6000);
+  setInterval(showNextToast, 18000);
+}
 
 // Export global app helper
 window.app = {
