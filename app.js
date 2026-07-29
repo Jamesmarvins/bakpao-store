@@ -163,8 +163,8 @@ function renderProducts(items) {
 
         <div class="product-price-row">
           <div class="product-price">Rp ${p.price.toLocaleString('id-ID')}</div>
-          <button class="add-cart-btn" onclick="app.addToCart(${p.id})" title="Tambah ke Keranjang">
-            <i class="fa-solid fa-plus"></i>
+          <button class="add-cart-btn" onclick="event.stopPropagation(); app.addToCart(${p.id})" title="Tambah ke Keranjang">
+            <i class="fa-solid fa-plus" style="pointer-events:none"></i>
           </button>
         </div>
       </div>
@@ -254,16 +254,10 @@ function initEventListeners() {
   const cartBtn = document.getElementById("cartBtn");
   const closeCartBtn = document.getElementById("closeCartBtn");
   const cartOverlay = document.getElementById("cartOverlay");
-  const cartDrawer = document.getElementById("cartDrawer");
 
   if (cartBtn) cartBtn.addEventListener("click", toggleCart);
   if (closeCartBtn) closeCartBtn.addEventListener("click", toggleCart);
   if (cartOverlay) cartOverlay.addEventListener("click", toggleCart);
-
-  function toggleCart() {
-    cartDrawer.classList.toggle("active");
-    cartOverlay.classList.toggle("active");
-  }
 
   // Accordion Guide
   document.querySelectorAll(".accordion-header").forEach(header => {
@@ -292,12 +286,21 @@ function initEventListeners() {
   }
 }
 
+// Global Toggle Cart Drawer
+function toggleCart() {
+  const cartDrawer = document.getElementById("cartDrawer");
+  const cartOverlay = document.getElementById("cartOverlay");
+  if (cartDrawer) cartDrawer.classList.toggle("active");
+  if (cartOverlay) cartOverlay.classList.toggle("active");
+}
+
 // Cart Functions
 function addToCart(productId) {
-  const product = products.find(p => p.id === productId);
+  const idNum = Number(productId);
+  const product = products.find(p => p.id === idNum || p.id == productId);
   if (!product) return;
 
-  const existing = cart.find(item => item.id === productId);
+  const existing = cart.find(item => item.id === product.id);
   if (existing) {
     existing.qty += 1;
   } else {
@@ -306,9 +309,11 @@ function addToCart(productId) {
 
   updateCartUI();
   
-  // Open Drawer or Toast
-  document.getElementById("cartDrawer").classList.add("active");
-  document.getElementById("cartOverlay").classList.add("active");
+  // Open Cart Drawer
+  const cartDrawer = document.getElementById("cartDrawer");
+  const cartOverlay = document.getElementById("cartOverlay");
+  if (cartDrawer) cartDrawer.classList.add("active");
+  if (cartOverlay) cartOverlay.classList.add("active");
 }
 
 function updateCartUI() {
