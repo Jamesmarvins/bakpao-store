@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "name": "bakpao-store",
+  "cleanUrls": true,
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ]
+}
