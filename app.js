@@ -157,10 +157,6 @@ function renderProducts(items) {
         <img src="${p.image}" alt="${p.name}" class="product-img">
       </div>
       <div class="product-info">
-        <div class="product-meta">
-          <span>⭐ ${p.rating}</span>
-          <span>${p.steamLevel}</span>
-        </div>
         <h3 class="product-title" onclick="app.showProductDetail(${p.id})" style="cursor:pointer">${p.name}</h3>
         <p class="product-desc">${p.desc}</p>
         
