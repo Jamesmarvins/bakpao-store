@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bao Gourmet — Bakpao Premium Soft & Fluffy | Fresh Setiap Hari</title>
+  <meta name="description" content="Nikmati kelembutan sempurna Bakpao Artisan dengan isian melimpah, lumer, dan 100% Halal. Pesan hangat langsung via WhatsApp!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Floating Steam Background FX -->
+  <div class="steam-container" id="steamBg"></div>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <span>🔥 <strong>PROMO SPESIAL:</strong> Beli Paket Family Box (Isi 6) Diskon Rp 10.000 + Gratis Ongkir Seluruh Kota!</span>
+      <a href="#menu" class="announcement-link">Pesan Sekarang &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="header" id="header">
+    <div class="container header-content">
+      <!-- Logo Container (Dedicated Slot for User Logo) -->
+      <a href="#" class="logo-wrapper" title="Area Slot Logo Bakpao Anda">
+        <div class="logo-badge" id="logoContainer">
+          <!-- Default Stylized SVG Brand Logo -->
+          <svg width="42" height="42" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="48" fill="url(#gradLogo)" stroke="#F59E0B" stroke-width="4"/>
+            <path d="M25 58C25 42 36 30 50 30C64 30 75 42 75 58C75 64 64 68 50 68C36 68 25 64 25 58Z" fill="#FFFDF9" stroke="#D97706" stroke-width="3"/>
+            <path d="M50 30C45 35 40 40 50 44C60 40 55 35 50 30Z" fill="#F59E0B"/>
+            <path d="M35 25C33 20 37 15 40 18M50 22C50 16 54 12 56 16M65 25C67 20 63 15 60 18" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+            <defs>
+              <linearGradient id="gradLogo" x1="0" y1="0" x2="100" y2="100">
+                <stop offset="0%" stop-color="#1E293B"/>
+                <stop offset="100%" stop-color="#0F172A"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="logo-text">
+            <span class="brand-name">BAO GOURMET</span>
+            <span class="brand-sub">Master Steamed Buns</span>
+          </div>
+        </div>
+        <span class="logo-hint-tag"><i class="fa-solid fa-cloud-arrow-up"></i> Slot Logo Anda</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="nav-menu">
+        <a href="#hero" class="nav-link active">Beranda</a>
+        <a href="#menu" class="nav-link">Varian Rasa</a>
+        <a href="#promo" class="nav-link">Paket Hemat</a>
+        <a href="#quiz" class="nav-link">Rekomendasi</a>
+        <a href="#reviews" class="nav-link">Testimoni</a>
+        <a href="#guide" class="nav-link">Cara Kukus</a>
+      </nav>
+
+      <!-- Cart & WhatsApp Action Button -->
+      <div class="header-actions">
+        <button class="cart-trigger" id="cartBtn" aria-label="Buka Keranjang">
+          <i class="fa-solid fa-basket-shopping"></i>
+          <span class="cart-count" id="cartBadge">0</span>
+        </button>
+        <a href="#menu" class="btn btn-primary btn-sm header-cta">
+          <i class="fa-brands fa-whatsapp"></i> Pesan Langsung
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-text-content">
+        <div class="pill-tag">
+          <span class="pulse-dot"></span> 100% Halal & Fresh Out of Steamer
+        </div>
+        <h1 class="hero-title">
+          Kelembutan Sempurna, <span class="highlight">Isian Lumer</span> di Setiap Gigitan!
+        </h1>
+        <p class="hero-desc">
+          Bakpao artisan dengan adonan ekstra fluffy, dibuat hangat setiap hari menggunakan bahan premium tanpa pengawet. Tersedia varian Gurih Daging Sapi Juicy hingga Cokelat Belgian Lumer!
+        </p>
+
+        <!-- Key Features Badges -->
+        <div class="hero-badges">
+          <div class="badge-item">
+            <div class="badge-icon"><i class="fa-solid fa-fire-burner"></i></div>
+            <span>Diukus Fresh</span>
+          </div>
+          <div class="badge-item">
+            <div class="badge-icon"><i class="fa-solid fa-check-double"></i></div>
+            <span>Tanpa Pengawet</span>
+          </div>
+          <div class="badge-item">
+            <div class="badge-icon"><i class="fa-solid fa-star"></i></div>
+            <span>Rating 4.9/5</span>
+          </div>
+        </div>
+
+        <!-- Hero CTAs -->
+        <div class="hero-buttons">
+          <a href="#menu" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-utensils"></i> Pilih Varian Rasa
+          </a>
+          <button class="btn btn-secondary btn-lg" id="playQuizBtn">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Cari Rasa Favoritmu
+          </button>
+        </div>
+
+        <!-- Social Proof snippet -->
+        <div class="social-proof-mini">
+          <div class="avatar-group">
+            <div class="avatar">👨‍🍳</div>
+            <div class="avatar">👩‍💼</div>
+            <div class="avatar">👨‍💻</div>
+            <div class="avatar">👩‍🎨</div>
+          </div>
+          <div class="proof-text">
+            <strong>1,250+ Pelanggan Ketagihan</strong> bulan ini!
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Image Frame -->
+      <div class="hero-visual">
+        <div class="hero-img-card">
+          <div class="glow-backdrop"></div>
+          <img src="images/hero.png" alt="Bakpao Hangat Premium" class="hero-main-img" id="heroImg">
+          <div class="visual-badge floating-badge-1">
+            <i class="fa-solid fa-temperature-arrow-up"></i> Warm & Soft Guarantee
+          </div>
+          <div class="visual-badge floating-badge-2">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <span>"Adonannya paling lembut!"</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Special Stats Bar -->
+  <section class="stats-section">
+    <div class="container stats-grid">
+      <div class="stat-card">
+        <h3 class="stat-number">10.000+</h3>
+        <p class="stat-label">Bakpao Terjual Hari Ini</p>
+      </div>
+      <div class="stat-card">
+        <h3 class="stat-number">100%</h3>
+        <p class="stat-label">Bahan Alami & Halal</p>
+      </div>
+      <div class="stat-card">
+        <h3 class="stat-number">12 Varian</h3>
+        <p class="stat-label">Pilihan Rasa Sensasional</p>
+      </div>
+      <div class="stat-card">
+        <h3 class="stat-number">30 Menit</h3>
+        <p class="stat-label">Sampai Hangat di Rumah</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Product Menu Section -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-title">KATALOG PILIHAN</span>
+        <h2 class="section-title">Menu Bakpao Spesial Favorit Anda</h2>
+        <p class="section-desc">Pilih varian rasa favoritmu. Bisa dipesan hangat siap makan atau beku (frozen) untuk stok rumah!</p>
+      </div>
+
+      <!-- Filter Controls & Search -->
+      <div class="menu-controls">
+        <div class="filter-tabs">
+          <button class="filter-btn active" data-filter="all">Semua Varian</button>
+          <button class="filter-btn" data-filter="gurih"><i class="fa-solid fa-drumstick-bite"></i> Gurih & Daging</button>
+          <button class="filter-btn" data-filter="manis"><i class="fa-solid fa-cookie-bite"></i> Manis & Lumer</button>
+          <button class="filter-btn" data-filter="spesial"><i class="fa-solid fa-gem"></i> Premium Spesial</button>
+          <button class="filter-btn" data-filter="paket"><i class="fa-solid fa-box-open"></i> Paket Box Hemat</button>
+        </div>
+        
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchInput" placeholder="Cari varian bakpao (ex: Cokelat, Daging)...">
+        </div>
+      </div>
+
+      <!-- Menu Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Dynamic Cards rendered via app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Special Package Promo Banner Section -->
+  <section class="promo-section" id="promo">
+    <div class="container promo-banner">
+      <div class="promo-content">
+        <span class="promo-tag">PAKET SPESIAL PENJUALAN BEST SELLER</span>
+        <h2 class="promo-title">Family Happiness Box (Isi 6 Varian Mix)</h2>
+        <p class="promo-desc">
+          Solusi pas untuk berkumpul bersama keluarga atau kado hangat teman. Dapatkan 6 varian bakpao paling favorit dalam 1 box eksklusif!
+        </p>
+        <ul class="promo-list">
+          <li><i class="fa-solid fa-circle-check"></i> 2x Bakpao Daging Ayam Char Siu</li>
+          <li><i class="fa-solid fa-circle-check"></i> 2x Bakpao Cokelat Belgian Lava</li>
+          <li><i class="fa-solid fa-circle-check"></i> 1x Bakpao Salted Egg Custard</li>
+          <li><i class="fa-solid fa-circle-check"></i> 1x Bakpao Mozzarella Cheese</li>
+        </ul>
+        <div class="promo-price-wrapper">
+          <span class="old-price">Rp 78.000</span>
+          <span class="new-price">Rp 65.000</span>
+          <span class="save-badge">Hemat Rp 13.000</span>
+        </div>
+        <button class="btn btn-primary btn-lg" onclick="app.addDirectToCart(99)">
+          <i class="fa-solid fa-cart-plus"></i> Ambil Promo Box Sekarang
+        </button>
+      </div>
+      <div class="promo-image-side">
+        <img src="images/chocolate.png" alt="Bakpao Box Promo" class="promo-img">
+        <div class="promo-floating-tag">⚡ Terjual 350+ Box MINGGU INI!</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Flavor Quiz Modal / Section -->
+  <section class="quiz-section" id="quiz">
+    <div class="container">
+      <div class="quiz-card">
+        <div class="quiz-header text-center">
+          <span class="sub-title">BINGUNG PILIH RASA?</span>
+          <h2>✨ Kuis Rekomendasi Rasa Bakpao</h2>
+          <p>Jawab 2 pertanyaan singkat ini untuk menemukan Bakpao yang paling cocok dengan selera Anda saat ini!</p>
+        </div>
+
+        <div class="quiz-step" id="quizStep1">
+          <h3>1. Kamu lagi pengen sensasi rasa apa?</h3>
+          <div class="quiz-options">
+            <button class="quiz-opt-btn" onclick="app.selectQuizOpt(1, 'gurih')">
+              <span class="opt-icon">🥩</span>
+              <span class="opt-title">Gurih, Daging Juicy & Lezat</span>
+            </button>
+            <button class="quiz-opt-btn" onclick="app.selectQuizOpt(1, 'manis')">
+              <span class="opt-icon">🍫</span>
+              <span class="opt-title">Manis, Lumer & Creamy</span>
+            </button>
+            <button class="quiz-opt-btn" onclick="app.selectQuizOpt(1, 'keju')">
+              <span class="opt-icon">🧀</span>
+              <span class="opt-title">Keju Melt & Gurih Asin</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="quiz-step d-none" id="quizStep2">
+          <h3>2. Kapan kamu berencana menyantapnya?</h3>
+          <div class="quiz-options">
+            <button class="quiz-opt-btn" onclick="app.finishQuiz('sekarang')">
+              <span class="opt-icon">☕</span>
+              <span class="opt-title">Sekarang (Langsung Dimakan Hangat)</span>
+            </button>
+            <button class="quiz-opt-btn" onclick="app.finishQuiz('frozen')">
+              <span class="opt-icon">❄️</span>
+              <span class="opt-title">Stok Rumah (Varian Frozen)</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="quiz-result d-none" id="quizResult">
+          <!-- Quiz Result Content rendered dynamically -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Testimonials -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="sub-title">APA KATA MEREKA</span>
+        <h2 class="section-title">Ribuan Pelanggan Puas & Ketagihan</h2>
+        <p class="section-desc">Ulasan jujur dari pecinta Bakpao sejati tentang tekstur lembut dan kelezatan isian kami.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p class="review-text">"Beneran adonannya super fuffy dan gak nempel di langit-langit mulut! Isian ayam char siu-nya melimpah dan manis gurihnya dapet banget. Langsung repeat order!"</p>
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">👩</div>
+            <div>
+              <h4 class="reviewer-name">Siti Rahmawati</h4>
+              <span class="reviewer-role">Verified Buyer • Jakarta Selatan</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p class="review-text">"Bakpao cokelat lava-nya gokil bgt! Pas digigit langsung meleleh di mulut. Anak-anak saya di rumah pada suka banget. Kemasan box-nya juga rapi dan mewah."</p>
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">👨</div>
+            <div>
+              <h4 class="reviewer-name">Budi Santoso</h4>
+              <span class="reviewer-role">Verified Buyer • Tangerang</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p class="review-text">"Pesan yang varian Salted Egg Custard pas dikukus ulang tetep lumer bgt. Recommended banget buat camilan sore kumpul keluarga!"</p>
+          <div class="reviewer-info">
+            <div class="reviewer-avatar">👩‍🦰</div>
+            <div>
+              <h4 class="reviewer-name">Melisa Amanda</h4>
+              <span class="reviewer-role">Verified Buyer • Bandung</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Re-steaming & Storage Guide Accordion -->
+  <section class="guide-section" id="guide">
+    <div class="container">
+      <div class="guide-wrapper">
+        <div class="guide-text">
+          <span class="sub-title">TIPS PENYAJIAN</span>
+          <h2 class="section-title">Cara Mengukus Bakpao Agar Tetap Lembut Fluffy</h2>
+          <p>Ingin menyantap Bakpao beku/frozen atau mengukus ulang di rumah? Ikuti panduan praktis ini untuk hasil seperti fresh out of steamer!</p>
+          
+          <div class="accordion">
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span><i class="fa-solid fa-wind"></i> Menggunakan Kukusan Tradisional (Sangat Direkomendasikan)</span>
+                <i class="fa-solid fa-chevron-down acc-icon"></i>
+              </button>
+              <div class="accordion-body">
+                <p>Panaskan air hingga mendidih. Masukkan Bakpao di atas kukusan yang dialasi kertas roti. Kukus selama <strong>5-7 menit</strong> untuk bakpao hangat, atau <strong>10-12 menit</strong> jika kondisi beku (frozen). Tutup kukusan dengan kain agar air tidak menetes ke Bakpao.</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span><i class="fa-solid fa-bolt"></i> Menggunakan Microwave (Praktis 1 Menit)</span>
+                <i class="fa-solid fa-chevron-down acc-icon"></i>
+              </button>
+              <div class="accordion-body">
+                <p>Percikkan sedikit air di permukaan Bakpao atau bungkus dengan tisu dapur basah. Masukkan ke microwave dengan daya medium-high selama <strong>30-45 detik</strong>. Sajikan selagi hangat!</p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <span><i class="fa-solid fa-snowflake"></i> Cara Menyimpan Di Freezer</span>
+                <i class="fa-solid fa-chevron-down acc-icon"></i>
+              </button>
+              <div class="accordion-body">
+                <p>Bakpao kami bertahan hingga 3 hari di suhu ruangan, atau hingga <strong>1 bulan penuh</strong> jika disimpan rapat dalam wadah kedap udara di dalam Freezer (-18°C).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="guide-img-container">
+          <img src="images/salted_egg.png" alt="Steam Bakpao Guide" class="guide-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-col brand-col">
+        <div class="logo-wrapper">
+          <div class="logo-badge">
+            <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="48" fill="#1E293B" stroke="#F59E0B" stroke-width="4"/>
+              <path d="M25 58C25 42 36 30 50 30C64 30 75 42 75 58C75 64 64 68 50 68C36 68 25 64 25 58Z" fill="#FFFDF9" stroke="#D97706" stroke-width="3"/>
+            </svg>
+            <div class="logo-text">
+              <span class="brand-name">BAO GOURMET</span>
+              <span class="brand-sub">Master Steamed Buns</span>
+            </div>
+          </div>
+        </div>
+        <p class="footer-desc">
+          Pelopor Bakpao Artisan dengan adonan kelembutan ekstra, isian melimpah, dan 100% Halal tanpa pengawet.
+        </p>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Navigasi</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">Beranda</a></li>
+          <li><a href="#menu">Katalog Varian</a></li>
+          <li><a href="#promo">Paket Family Box</a></li>
+          <li><a href="#reviews">Ulasan Pembeli</a></li>
+          <li><a href="#guide">Cara Mengukus</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Layanan Outlet</h4>
+        <p><i class="fa-solid fa-location-dot"></i> Jl. Wisata Kuliner Nusantara No. 88, Jakarta</p>
+        <p><i class="fa-solid fa-clock"></i> Buka Setiap Hari: 07:00 - 21:00 WIB</p>
+        <p><i class="fa-solid fa-phone"></i> CS WA: +62 812-3456-7890</p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-title">Jaminan Kualitas</h4>
+        <div class="cert-badges">
+          <span class="cert-item"><i class="fa-solid fa-certificate"></i> 100% Halal MUI</span>
+          <span class="cert-item"><i class="fa-solid fa-leaf"></i> Tanpa Pengawet</span>
+          <span class="cert-item"><i class="fa-solid fa-truck-fast"></i> Pengiriman Sameday</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom text-center">
+      <p>&copy; 2026 Bao Gourmet. All rights reserved. Website siap pakai untuk usaha jualan Bakpao Anda.</p>
+    </div>
+  </footer>
+
+  <!-- Shopping Cart Drawer Modal -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3><i class="fa-solid fa-bag-shopping"></i> Keranjang Belanja (<span id="cartCountTitle">0</span>)</h3>
+      <button class="cart-close-btn" id="closeCartBtn">&times;</button>
+    </div>
+
+    <div class="cart-drawer-body" id="cartItemsList">
+      <!-- Cart items will be rendered here -->
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Subtotal Menu</span>
+          <span id="cartSubtotal">Rp 0</span>
+        </div>
+        <div class="summary-row">
+          <span>Tipe Penyajian</span>
+          <select id="shippingTypeSelect" class="form-select">
+            <option value="Hangat (Siap Makan)">🔥 Dimakan Hangat (Siap Makan)</option>
+            <option value="Beku (Frozen Food)">❄️ Beku / Frozen (Untuk Stok)</option>
+          </select>
+        </div>
+        <div class="summary-row total-row">
+          <span>Total Pembayaran</span>
+          <span id="cartTotal" class="total-price">Rp 0</span>
+        </div>
+      </div>
+
+      <!-- Checkout Form for WhatsApp -->
+      <form id="checkoutForm" class="checkout-form">
+        <div class="form-group">
+          <input type="text" id="custName" placeholder="Nama Lengkap Anda *" required class="form-input">
+        </div>
+        <div class="form-group">
+          <input type="tel" id="custPhone" placeholder="Nomor WhatsApp *" required class="form-input">
+        </div>
+        <div class="form-group">
+          <textarea id="custAddress" placeholder="Alamat Lengkap Pengiriman (atau Tulis Takeaway) *" required class="form-input" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+          <input type="text" id="custNotes" placeholder="Catatan Khusus (Opsional: Misal Jangan Pedas)" class="form-input">
+        </div>
+        
+        <button type="submit" class="btn btn-whatsapp-submit btn-block">
+          <i class="fa-brands fa-whatsapp"></i> Kirim Pesanan via WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Detail Product Modal -->
+  <div class="modal-overlay" id="productModalOverlay">
+    <div class="modal-content" id="productModalContent">
+      <button class="modal-close" id="closeModalBtn">&times;</button>
+      <div class="modal-body" id="modalDetailBody">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
