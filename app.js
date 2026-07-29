@@ -395,6 +395,20 @@ function removeItem(id) {
   updateCartUI();
 }
 
+// Input Sanitization for Security (XSS Prevention)
+function sanitizeText(str) {
+  if (!str) return "";
+  return String(str).replace(/[&<>"']/g, function(m) {
+    return {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#039;'
+    }[m];
+  });
+}
+
 // WhatsApp Order Formatting & Redirection
 function sendWhatsAppOrder() {
   if (cart.length === 0) {
@@ -402,11 +416,11 @@ function sendWhatsAppOrder() {
     return;
   }
 
-  const name = document.getElementById("custName").value.trim();
-  const phone = document.getElementById("custPhone").value.trim();
-  const address = document.getElementById("custAddress").value.trim();
-  const notes = document.getElementById("custNotes").value.trim();
-  const shipType = document.getElementById("shippingTypeSelect").value;
+  const name = sanitizeText(document.getElementById("custName").value.trim());
+  const phone = sanitizeText(document.getElementById("custPhone").value.trim());
+  const address = sanitizeText(document.getElementById("custAddress").value.trim());
+  const notes = sanitizeText(document.getElementById("custNotes").value.trim());
+  const shipType = sanitizeText(document.getElementById("shippingTypeSelect").value);
 
   const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
