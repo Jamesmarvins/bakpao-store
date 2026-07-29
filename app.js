@@ -164,17 +164,6 @@ function renderProducts(items) {
         <h3 class="product-title" onclick="app.showProductDetail(${p.id})" style="cursor:pointer">${p.name}</h3>
         <p class="product-desc">${p.desc}</p>
         
-        <!-- Meter Gauge Kelembutan & Kelumeran -->
-        <div class="meter-wrapper">
-          <div class="meter-row">
-            <span>🌾 Kelembutan Adonan</span>
-            <span>${p.fluffyScore || 98}% Fluffy</span>
-          </div>
-          <div class="meter-track">
-            <div class="meter-fill" style="width: ${p.fluffyScore || 98}%"></div>
-          </div>
-        </div>
-
         <div class="product-price-row">
           <div class="product-price">Rp ${p.price.toLocaleString('id-ID')}</div>
           <button class="add-cart-btn" onclick="event.stopPropagation(); app.addToCart(${p.id})" title="Tambah ke Keranjang">
