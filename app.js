@@ -118,7 +118,21 @@ document.addEventListener("DOMContentLoaded", () => {
   initSteamParticles();
   initEventListeners();
   updateCartUI();
+  syncWhatsAppLinks();
 });
+
+// Synchronize all WhatsApp links to STORE_WHATSAPP_NUMBER
+function syncWhatsAppLinks() {
+  const waBtnHeader = document.getElementById("headerWaBtn");
+  const waLinkFooter = document.getElementById("waLink");
+  
+  if (waBtnHeader) {
+    waBtnHeader.href = `https://wa.me/${STORE_WHATSAPP_NUMBER}?text=Halo%20Bao%20Gourmet%2C%20saya%20mau%20pesan%20Bakpao`;
+  }
+  if (waLinkFooter) {
+    waLinkFooter.href = `https://wa.me/${STORE_WHATSAPP_NUMBER}?text=Halo%20Bao%20Gourmet`;
+  }
+}
 
 // Render Products Grid
 function renderProducts(items) {
