@@ -468,20 +468,43 @@ function selectQuizOpt(step, val) {
   document.getElementById("quizStep2").classList.remove("d-none");
 }
 
-function finishQuiz(timing) {
-  quizSelections.timing = timing;
+function finishQuiz(texture) {
+  quizSelections.texture = texture;
   document.getElementById("quizStep2").classList.add("d-none");
 
   const resultContainer = document.getElementById("quizResult");
   resultContainer.classList.remove("d-none");
 
   let recommended;
-  if (quizSelections.type === 'gurih') {
-    recommended = products.find(p => p.id === 1);
-  } else if (quizSelections.type === 'manis') {
-    recommended = products.find(p => p.id === 3);
+  const type = quizSelections.type;
+
+  if (type === 'gurih') {
+    if (texture === 'rich') {
+      recommended = products.find(p => p.id === 2); // Daging Sapi Lada Hitam
+    } else {
+      recommended = products.find(p => p.id === 1); // Ayam Char Siu
+    }
+  } else if (type === 'manis') {
+    if (texture === 'classic') {
+      recommended = products.find(p => p.id === 6); // Matcha Red Bean Velvet
+    } else {
+      recommended = products.find(p => p.id === 3); // Cokelat Belgian Lava
+    }
+  } else if (type === 'spesial') {
+    if (texture === 'rich') {
+      recommended = products.find(p => p.id === 5); // Mozzarella Smoked Beef
+    } else {
+      recommended = products.find(p => p.id === 4); // Salted Egg Custard
+    }
+  } else if (type === 'paket') {
+    recommended = products.find(p => p.id === 99); // Family Box Mix
   } else {
-    recommended = products.find(p => p.id === 4);
+    recommended = products[Math.floor(Math.random() * products.length)];
+  }
+
+  // Fallback safety if recommendation not found
+  if (!recommended) {
+    recommended = products[0];
   }
 
   resultContainer.innerHTML = `

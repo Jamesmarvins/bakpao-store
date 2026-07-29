@@ -33,8 +33,8 @@
   <!-- Header / Navigation -->
   <header class="header" id="header">
     <div class="container header-content">
-      <!-- Logo Container (Dedicated Slot for User Logo) -->
-      <a href="#" class="logo-wrapper" title="Area Slot Logo Bakpao Anda">
+      <!-- Logo Container -->
+      <a href="#" class="logo-wrapper" title="Bao Gourmet">
         <div class="logo-badge" id="logoContainer">
           <!-- Default Stylized SVG Brand Logo -->
           <svg width="42" height="42" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +54,6 @@
             <span class="brand-sub">Master Steamed Buns</span>
           </div>
         </div>
-        <span class="logo-hint-tag"><i class="fa-solid fa-cloud-arrow-up"></i> Slot Logo Anda</span>
       </a>
 
       <!-- Mobile Hamburger Toggle -->
@@ -165,29 +164,37 @@
           <div class="quiz-options">
             <button class="quiz-opt-btn" onclick="app.selectQuizOpt(1, 'gurih')">
               <span class="opt-icon">🥩</span>
-              <span class="opt-title">Gurih, Daging Juicy & Lezat</span>
+              <span class="opt-title">Gurih & Daging Mantap</span>
             </button>
             <button class="quiz-opt-btn" onclick="app.selectQuizOpt(1, 'manis')">
               <span class="opt-icon">🍫</span>
-              <span class="opt-title">Manis, Lumer & Creamy</span>
+              <span class="opt-title">Manis & Creamy</span>
             </button>
-            <button class="quiz-opt-btn" onclick="app.selectQuizOpt(1, 'keju')">
+            <button class="quiz-opt-btn" onclick="app.selectQuizOpt(1, 'spesial')">
               <span class="opt-icon">🧀</span>
-              <span class="opt-title">Keju Melt & Gurih Asin</span>
+              <span class="opt-title">Keju & Salted Egg</span>
+            </button>
+            <button class="quiz-opt-btn" onclick="app.selectQuizOpt(1, 'paket')">
+              <span class="opt-icon">🎁</span>
+              <span class="opt-title">Paket Rame-rame / Box</span>
             </button>
           </div>
         </div>
 
         <div class="quiz-step d-none" id="quizStep2">
-          <h3>2. Kapan kamu berencana menyantapnya?</h3>
+          <h3>2. Sensasi & tekstur isian seperti apa yang kamu sukai?</h3>
           <div class="quiz-options">
-            <button class="quiz-opt-btn" onclick="app.finishQuiz('sekarang')">
-              <span class="opt-icon">☕</span>
-              <span class="opt-title">Sekarang (Langsung Dimakan Hangat)</span>
+            <button class="quiz-opt-btn" onclick="app.finishQuiz('lumer')">
+              <span class="opt-icon">🫠</span>
+              <span class="opt-title">Super Lumer & Meleleh (Melted Lava)</span>
             </button>
-            <button class="quiz-opt-btn" onclick="app.finishQuiz('frozen')">
-              <span class="opt-icon">❄️</span>
-              <span class="opt-title">Stok Rumah (Varian Frozen)</span>
+            <button class="quiz-opt-btn" onclick="app.finishQuiz('rich')">
+              <span class="opt-icon">🔥</span>
+              <span class="opt-title">Kaya Rempah / Keju Molor Gurih</span>
+            </button>
+            <button class="quiz-opt-btn" onclick="app.finishQuiz('classic')">
+              <span class="opt-icon">☕</span>
+              <span class="opt-title">Lembut, Authentic & Pas Untuk Santai</span>
             </button>
           </div>
         </div>
