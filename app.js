@@ -704,6 +704,100 @@ function showQrisModal() {
   modal.classList.add("active");
 }
 
+// Bank Transfer Modal Viewer
+function showBankModal() {
+  const body = document.getElementById("modalDetailBody");
+  const modal = document.getElementById("productModalOverlay");
+  if (!body || !modal) return;
+
+  body.innerHTML = `
+    <div style="text-align:center; padding: 2rem 1.5rem;">
+      <span class="card-badge gold" style="position:static">TRANSFER BANK</span>
+      <h2 style="color:#FFF; font-size:1.6rem; margin:0.8rem 0 1rem">Rekening Pembayaran Resmi</h2>
+      
+      <div style="display:flex; flex-direction:column; gap:1rem; text-align:left; margin-bottom:1.5rem">
+        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); padding:1rem; border-radius:14px;">
+          <div style="font-weight:800; color:#F59E0B">🏛️ BANK BCA</div>
+          <div style="font-size:1.1rem; font-weight:800; color:#FFF; margin:0.2rem 0">123-456-7890</div>
+          <div style="font-size:0.85rem; color:#94A3B8">a.n. BAO GOURMET ARTISAN</div>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); padding:1rem; border-radius:14px;">
+          <div style="font-weight:800; color:#F59E0B">🏛️ BANK MANDIRI</div>
+          <div style="font-size:1.1rem; font-weight:800; color:#FFF; margin:0.2rem 0">987-000-123456</div>
+          <div style="font-size:0.85rem; color:#94A3B8">a.n. BAO GOURMET ARTISAN</div>
+        </div>
+      </div>
+
+      <p style="color:#FCD34D; font-size:0.85rem; font-weight:700">📌 Konfirmasi bukti kirim dapat dilakukan via WhatsApp saat checkout.</p>
+    </div>
+  `;
+  modal.classList.add("active");
+}
+
+// E-Wallet Modal Viewer
+function showEwalletModal() {
+  const body = document.getElementById("modalDetailBody");
+  const modal = document.getElementById("productModalOverlay");
+  if (!body || !modal) return;
+
+  body.innerHTML = `
+    <div style="text-align:center; padding: 2rem 1.5rem;">
+      <span class="card-badge gold" style="position:static">E-WALLET PAYMENT</span>
+      <h2 style="color:#FFF; font-size:1.6rem; margin:0.8rem 0 1rem">Pembayaran GoPay / OVO / ShopeePay</h2>
+      
+      <div style="background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); padding:1.2rem; border-radius:16px; text-align:left; margin-bottom:1.5rem">
+        <div style="font-weight:800; color:#F59E0B; margin-bottom:0.5rem">📱 Nomor E-Wallet Toko:</div>
+        <div style="font-size:1.3rem; font-weight:800; color:#FFF; margin-bottom:0.3rem">0812-3456-7890</div>
+        <div style="font-size:0.85rem; color:#94A3B8">a.n. BAO GOURMET</div>
+      </div>
+
+      <button class="btn btn-primary btn-block" onclick="app.showQrisModal()">
+        <i class="fa-solid fa-qrcode"></i> Atau Scan via QRIS
+      </button>
+    </div>
+  `;
+  modal.classList.add("active");
+}
+
+// Courier Modal Viewer
+function showCourierModal() {
+  const body = document.getElementById("modalDetailBody");
+  const modal = document.getElementById("productModalOverlay");
+  if (!body || !modal) return;
+
+  body.innerHTML = `
+    <div style="text-align:center; padding: 2rem 1.5rem;">
+      <span class="card-badge gold" style="position:static">PENGIRIMAN INSTANT</span>
+      <h2 style="color:#FFF; font-size:1.6rem; margin:0.8rem 0 0.5rem">GoSend & GrabExpress</h2>
+      <p style="color:#94A3B8; font-size:0.9rem; margin-bottom:1.5rem">Pengiriman Sameday / Instant langsung dari dapur hangat kami sampai ke rumah Anda dalam 30-60 menit.</p>
+      <div style="background:rgba(245,158,11,0.15); border:1px solid #F59E0B; padding:1rem; border-radius:14px; color:#FCD34D; font-size:0.85rem; font-weight:700">
+        🔥 Bakpao dikemas dalam Thermal Bag khusus agar tetap hangat & lembut saat sampai!
+      </div>
+    </div>
+  `;
+  modal.classList.add("active");
+}
+
+// Paxel Modal Viewer
+function showPaxelModal() {
+  const body = document.getElementById("modalDetailBody");
+  const modal = document.getElementById("productModalOverlay");
+  if (!body || !modal) return;
+
+  body.innerHTML = `
+    <div style="text-align:center; padding: 2rem 1.5rem;">
+      <span class="card-badge gold" style="position:static">KIRIM LUAR KOTA</span>
+      <h2 style="color:#FFF; font-size:1.6rem; margin:0.8rem 0 0.5rem">Paxel Frozen Delivery</h2>
+      <p style="color:#94A3B8; font-size:0.9rem; margin-bottom:1.5rem">Layanan khusus kurir pendingin Paxel Frozen Next Day dengan jaminan produk aman & fresh sampai luar kota.</p>
+      <div style="background:rgba(16,185,129,0.15); border:1px solid #10B981; padding:1rem; border-radius:14px; color:#A7F3D0; font-size:0.85rem; font-weight:700">
+        ❄️ Dikemas vacuum sealed kedap udara + ice pack dingin tahan hingga 48 jam perjalanan.
+      </div>
+    </div>
+  `;
+  modal.classList.add("active");
+}
+
 // Export global app helper
 window.app = {
   addToCart,
@@ -720,5 +814,9 @@ window.app = {
   removeBoxSlot,
   clearCustomBox,
   addCustomBoxToCart,
-  showQrisModal
+  showQrisModal,
+  showBankModal,
+  showEwalletModal,
+  showCourierModal,
+  showPaxelModal
 };

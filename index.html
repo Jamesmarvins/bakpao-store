@@ -395,10 +395,10 @@
       <span class="sub-title" style="margin-bottom:1rem">JAMINAN KEAMANAN PEMBAYARAN & PENGIRIMAN</span>
       <div class="partners-grid">
         <div class="partner-tag" onclick="app.showQrisModal()" style="cursor:pointer" title="Klik untuk lihat QRIS"><i class="fa-solid fa-qrcode"></i> QRIS (Semua E-Wallet)</div>
-        <div class="partner-tag"><i class="fa-solid fa-building-columns"></i> BCA / Mandiri</div>
-        <div class="partner-tag"><i class="fa-solid fa-mobile-screen"></i> GoPay / OVO</div>
-        <div class="partner-tag"><i class="fa-solid fa-motorcycle"></i> GoSend / Grab</div>
-        <div class="partner-tag"><i class="fa-solid fa-snowflake"></i> Paxel Frozen</div>
+        <div class="partner-tag" onclick="app.showBankModal()" style="cursor:pointer" title="Klik Info Transfer Bank"><i class="fa-solid fa-building-columns"></i> BCA / Mandiri</div>
+        <div class="partner-tag" onclick="app.showEwalletModal()" style="cursor:pointer" title="Klik Info E-Wallet"><i class="fa-solid fa-mobile-screen"></i> GoPay / OVO</div>
+        <div class="partner-tag" onclick="app.showCourierModal()" style="cursor:pointer" title="Klik Info Pengiriman Instant"><i class="fa-solid fa-motorcycle"></i> GoSend / Grab</div>
+        <div class="partner-tag" onclick="app.showPaxelModal()" style="cursor:pointer" title="Klik Info Kirim Luar Kota"><i class="fa-solid fa-snowflake"></i> Paxel Frozen</div>
       </div>
       <button class="btn btn-secondary btn-sm" onclick="app.showQrisModal()" style="margin-top:1.2rem">
         <i class="fa-solid fa-qrcode"></i> Tampilkan QRIS Pembayaran
