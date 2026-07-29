@@ -52,8 +52,13 @@
         <span class="logo-hint-tag"><i class="fa-solid fa-cloud-arrow-up"></i> Slot Logo Anda</span>
       </a>
 
-      <!-- Desktop Nav -->
-      <nav class="nav-menu">
+      <!-- Mobile Hamburger Toggle -->
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Buka Menu Navigasi">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <!-- Desktop & Mobile Nav -->
+      <nav class="nav-menu" id="navMenu">
         <a href="#hero" class="nav-link active">Beranda</a>
         <a href="#menu" class="nav-link">Varian Rasa</a>
         <a href="#promo" class="nav-link">Paket Hemat</a>
@@ -497,6 +502,16 @@
         <!-- Rendered dynamically -->
       </div>
     </div>
+  </div>
+
+  <!-- Mobile Sticky Quick Action Bar (Khusus Tampilan HP) -->
+  <div class="mobile-floating-bar" id="mobileFloatingBar">
+    <button class="btn btn-secondary btn-sm" id="mobileCartBtn" onclick="app.toggleCart()">
+      <i class="fa-solid fa-basket-shopping"></i> Keranjang (<span id="mobileCartCount">0</span>)
+    </button>
+    <a href="#menu" class="btn btn-primary btn-sm">
+      <i class="fa-brands fa-whatsapp"></i> Pesan Sekarang
+    </a>
   </div>
 
   <script src="app.js"></script>

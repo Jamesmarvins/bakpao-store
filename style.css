@@ -1420,26 +1420,157 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 10;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 992px) {
-  .hero-grid, .promo-banner, .guide-wrapper {
+/* ==========================================================================
+   MULTI-DEVICE RESPONSIVENESS (HP, TABLET, LAPTOP & PC)
+   ========================================================================== */
+
+/* Mobile Hamburger Toggle Button */
+.mobile-nav-toggle {
+  display: none;
+  background: var(--bg-dark);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+/* Mobile Sticky Bottom Quick Action Bar */
+.mobile-floating-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--glass-border);
+  padding: 0.75rem 1rem;
+  z-index: 990;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
+}
+
+/* Tablet & Laptop Adjustments (Max Width: 1024px) */
+@media (max-width: 1024px) {
+  .hero-grid {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
   }
 
-  .hero-title {
-    font-size: 2.5rem;
+  .hero-badges, .hero-buttons, .social-proof-mini {
+    justify-content: center;
+  }
+
+  .promo-banner {
+    grid-template-columns: 1fr;
+    padding: 2.5rem 1.8rem;
+    gap: 2rem;
+  }
+
+  .guide-wrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
 
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  .reviews-grid, .footer-grid {
-    grid-template-columns: 1fr;
+/* Mobile / HP Devices (Max Width: 768px) */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
   }
 
+  .announcement-bar {
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+  .announcement-content {
+    justify-content: center;
+  }
+
+  .header-content {
+    padding: 0.75rem 1rem;
+  }
+
+  .mobile-nav-toggle {
+    display: flex;
+  }
+
+  /* Slide-down Mobile Navigation Menu */
   .nav-menu {
-    display: none; /* Can be toggled if mobile menu added */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--bg-dark);
+    flex-direction: column;
+    padding: 1.25rem 1.5rem;
+    gap: 1rem;
+    border-bottom: 2px solid var(--primary);
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: var(--transition);
+  }
+
+  .nav-menu.mobile-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-link {
+    color: #F8FAFC;
+    font-size: 1.05rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .header-cta {
+    display: none; /* Disembunyikan di header mobile, tersedia di floating bar bawah */
+  }
+
+  .logo-hint-tag {
+    display: none; /* Disederhanakan untuk layar kecil */
+  }
+
+  .hero-section {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
   }
 
   .floating-badge-1, .floating-badge-2 {
@@ -1448,6 +1579,90 @@ h1, h2, h3, h4, h5, h6 {
     left: auto;
     bottom: auto;
     right: auto;
-    margin-top: 0.5rem;
+    margin-top: 0.75rem;
+    display: inline-block;
+  }
+
+  .menu-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-tabs {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* Cart Drawer Fullscreen di HP */
+  .cart-drawer {
+    width: 100%;
+    max-width: 100%;
+    right: -100%;
+  }
+
+  .cart-drawer.active {
+    right: 0;
+  }
+
+  /* Aktifkan Mobile Floating Action Bar */
+  .mobile-floating-bar {
+    display: flex;
+  }
+
+  body {
+    padding-bottom: 60px; /* Jarak agar tidak tertutup floating bar */
   }
 }
+
+/* HP Layar Sangat Kecil (Max Width: 480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.85rem;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+  }
+
+  .brand-sub {
+    font-size: 0.55rem;
+  }
+
+  .promo-title {
+    font-size: 1.75rem;
+  }
+
+  .promo-price-wrapper {
+    flex-wrap: wrap;
+  }
+
+  .new-price {
+    font-size: 1.8rem;
+  }
+
+  .quiz-card {
+    padding: 1.5rem 1.25rem;
+  }
+}
+

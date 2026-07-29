@@ -204,6 +204,32 @@ function initEventListeners() {
     });
   }
 
+  // Mobile Navbar Toggle
+  const mobileNavToggle = document.getElementById("mobileNavToggle");
+  const navMenu = document.getElementById("navMenu");
+  if (mobileNavToggle && navMenu) {
+    mobileNavToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("mobile-active");
+      const icon = mobileNavToggle.querySelector("i");
+      if (icon) {
+        icon.classList.toggle("fa-bars");
+        icon.classList.toggle("fa-xmark");
+      }
+    });
+
+    // Close menu when clicking link
+    document.querySelectorAll(".nav-link").forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("mobile-active");
+        const icon = mobileNavToggle.querySelector("i");
+        if (icon) {
+          icon.classList.add("fa-bars");
+          icon.classList.remove("fa-xmark");
+        }
+      });
+    });
+  }
+
   // Cart Drawer Toggles
   const cartBtn = document.getElementById("cartBtn");
   const closeCartBtn = document.getElementById("closeCartBtn");
@@ -267,6 +293,7 @@ function addToCart(productId) {
 
 function updateCartUI() {
   const badge = document.getElementById("cartBadge");
+  const mobileBadge = document.getElementById("mobileCartCount");
   const titleCount = document.getElementById("cartCountTitle");
   const itemsContainer = document.getElementById("cartItemsList");
   const subtotalEl = document.getElementById("cartSubtotal");
@@ -276,6 +303,7 @@ function updateCartUI() {
   const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
   if (badge) badge.innerText = totalQty;
+  if (mobileBadge) mobileBadge.innerText = totalQty;
   if (titleCount) titleCount.innerText = totalQty;
   if (subtotalEl) subtotalEl.innerText = `Rp ${subtotal.toLocaleString('id-ID')}`;
   if (totalEl) totalEl.innerText = `Rp ${subtotal.toLocaleString('id-ID')}`;
@@ -445,6 +473,7 @@ function resetQuiz() {
 window.app = {
   addToCart,
   addDirectToCart: addToCart,
+  toggleCart,
   changeQty,
   removeItem,
   showProductDetail,
