@@ -189,7 +189,6 @@ function renderProducts(items) {
       </div>
       <div class="product-info">
         <div class="product-meta-row">
-          <span class="star-rating"><i class="fa-solid fa-star"></i> ${p.rating || '4.9'}</span>
           <span class="category-pill">${p.category === 'manis' ? 'Manis & Lumer' : 'Gurih & Daging'}</span>
         </div>
         <h3 class="product-title" onclick="app.showProductDetail(${p.id})">${p.name}</h3>
@@ -505,8 +504,8 @@ function showProductDetail(id) {
         <span class="card-badge ${p.badgeColor}" style="position:absolute; top:12px; left:12px;">${p.badge}</span>
       </div>
       <div>
-        <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.4rem; font-size:0.85rem; color:#FBBF24; font-weight:800;">
-          <i class="fa-solid fa-star"></i> ${p.rating || '4.9'} • <span style="color:#CBD5E1; font-weight:600;">Bakpao Cik Sien</span>
+        <div style="margin-bottom:0.4rem; font-size:0.85rem; color:#FCD34D; font-weight:800;">
+          Bakpao Cik Sien
         </div>
         <h2 style="margin: 0 0 0.5rem; font-size:1.6rem; font-weight:900; color:#FFFFFF">${p.name}</h2>
         <p style="color:#CBD5E1; font-size:0.9rem; margin-bottom: 1.2rem; line-height:1.6">${p.desc}</p>
