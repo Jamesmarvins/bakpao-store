@@ -65,7 +65,6 @@
       <nav class="nav-menu" id="navMenu">
         <a href="#hero" class="nav-link active">Beranda</a>
         <a href="#menu" class="nav-link">Daftar Menu</a>
-        <a href="#quiz" class="nav-link">Rekomendasi</a>
         <a href="#reviews" class="nav-link">Testimoni</a>
         <a href="#guide" class="nav-link">Cara Kukus</a>
       </nav>
@@ -180,59 +179,6 @@
       <!-- Menu Grid -->
       <div class="products-grid" id="productsGrid">
         <!-- Dynamic Cards rendered via app.js -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Interactive Flavor Quiz Modal / Section -->
-  <section class="quiz-section" id="quiz">
-    <div class="container">
-      <div class="quiz-card">
-        <div class="quiz-header text-center">
-          <span class="sub-title">BINGUNG PILIH RASA?</span>
-          <h2>✨ Kuis Rekomendasi Rasa Bakpao</h2>
-          <p>Jawab 2 pertanyaan singkat ini untuk menemukan Bakpao Cik Sien yang paling pas untuk Anda!</p>
-        </div>
-
-        <div class="quiz-step" id="quizStep1">
-          <h3>1. Pilih varian bahan isian yang paling kamu sukai:</h3>
-          <div class="quiz-options">
-            <button class="quiz-opt-btn" onclick="app.selectQuizOpt(1, 'ayam')">
-              <span class="opt-icon">🍗</span>
-              <span class="opt-title">Olahan Daging Ayam (Kecap / Charsiu / Keju)</span>
-            </button>
-            <button class="quiz-opt-btn" onclick="app.selectQuizOpt(1, 'babi')">
-              <span class="opt-icon">🥓</span>
-              <span class="opt-title">Olahan Daging Babi (Kecap / Charsiu)</span>
-            </button>
-            <button class="quiz-opt-btn" onclick="app.selectQuizOpt(1, 'manis')">
-              <span class="opt-icon">🍫</span>
-              <span class="opt-title">Varian Manis & Keju (Coklat / Keju / Wijen / Kacang)</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="quiz-step d-none" id="quizStep2">
-          <h3>2. Sensasi cita rasa apa yang ingin kamu nikmati?</h3>
-          <div class="quiz-options">
-            <button class="quiz-opt-btn" onclick="app.finishQuiz('charsiu')">
-              <span class="opt-icon">🍯</span>
-              <span class="opt-title">Char Siu Oriental (Merah BBQ Manis Gurih Juicy)</span>
-            </button>
-            <button class="quiz-opt-btn" onclick="app.finishQuiz('kecap')">
-              <span class="opt-icon">🍲</span>
-              <span class="opt-title">Bumbu Kecap Pekat (Legit, Gurih & Rempah)</span>
-            </button>
-            <button class="quiz-opt-btn" onclick="app.finishQuiz('keju_nutty')">
-              <span class="opt-icon">🧀</span>
-              <span class="opt-title">Keju Spesial / Kacang Wijen / Coklat / Kacang Hijau</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="quiz-result d-none" id="quizResult">
-          <!-- Quiz Result Content rendered dynamically -->
-        </div>
       </div>
     </div>
   </section>
@@ -415,7 +361,6 @@
         <ul class="footer-links">
           <li><a href="#hero">Beranda</a></li>
           <li><a href="#menu">Daftar Menu</a></li>
-          <li><a href="#quiz">Kuis Rekomendasi</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#guide">Cara Mengukus</a></li>
         </ul>
