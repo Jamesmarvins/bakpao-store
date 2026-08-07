@@ -155,10 +155,13 @@ let isSubmittingOrder = false;
 // Initialize App
 document.addEventListener("DOMContentLoaded", () => {
   validateCartIntegrity();
+  sanitizeURLParameters();
   renderProducts(products);
   initSteamParticles();
   initEventListeners();
   initImageProtection();
+  initDevToolsBlocker();
+  enforceTabnabbingProtection();
   updateCartUI();
   syncWhatsAppLinks();
 });
@@ -515,10 +518,53 @@ function initImageProtection() {
       showToastNotification("🔒 Foto produk dilindungi hak cipta Bakpao Cik Sien.");
     }
   });
-  document.addEventListener("dragstart", (e) => {
-    if (e.target.tagName === "IMG") {
+}
+
+// DevTools & Source Code Inspection Shortcut Blocker Guard
+function initDevToolsBlocker() {
+  document.addEventListener("keydown", (e) => {
+    // Block F12 Key
+    if (e.key === "F12" || e.keyCode === 123) {
       e.preventDefault();
+      showToastNotification("🔒 Fitur Inspeksi Kode Dibatasi demi Keamanan.");
+      return false;
     }
+    // Block Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C (Inspect Console)
+    if (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "i" || e.key === "J" || e.key === "j" || e.key === "C" || e.key === "c")) {
+      e.preventDefault();
+      showToastNotification("🔒 Fitur Inspeksi Kode Dibatasi demi Keamanan.");
+      return false;
+    }
+    // Block Ctrl+U (View Source Code)
+    if (e.ctrlKey && (e.key === "U" || e.key === "u")) {
+      e.preventDefault();
+      showToastNotification("🔒 Fitur Lihat Source Code Dibatasi demi Keamanan.");
+      return false;
+    }
+  });
+}
+
+// URL Parameter DOM Injection Sanitizer
+function sanitizeURLParameters() {
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    let searchVal = urlParams.get("search");
+    if (searchVal) {
+      searchVal = sanitizeText(searchVal);
+      const searchInput = document.getElementById("searchInput");
+      if (searchInput) {
+        searchInput.value = searchVal;
+      }
+    }
+  } catch (err) {
+    console.warn("URL Sanitizer Guard Handled Exception");
+  }
+}
+
+// Enforce Tabnabbing Protection on all External Links
+function enforceTabnabbingProtection() {
+  document.querySelectorAll("a[target='_blank']").forEach(link => {
+    link.setAttribute("rel", "noopener noreferrer");
   });
 }
 
