@@ -1831,16 +1831,31 @@ h1, h2, h3, h4 {
 
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
-    text-align: center;
+    gap: 1.75rem;
+    text-align: left;
+  }
+
+  .footer-col {
+    padding-bottom: 1.25rem;
+    border-bottom: 1px dashed rgba(245, 158, 11, 0.15);
+  }
+
+  .footer-col:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
   }
 
   .social-links {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .cert-badges {
-    align-items: center;
+    align-items: flex-start;
+  }
+
+  .cert-item {
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .cart-drawer {
