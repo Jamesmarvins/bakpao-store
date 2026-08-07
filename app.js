@@ -270,18 +270,43 @@ function initEventListeners() {
       }
     });
 
-    // Close menu when clicking link
-    document.querySelectorAll(".nav-link").forEach(link => {
-      link.addEventListener("click", () => {
-        navMenu.classList.remove("mobile-active");
-        const icon = mobileNavToggle.querySelector("i");
-        if (icon) {
-          icon.classList.add("fa-bars");
-          icon.classList.remove("fa-xmark");
+    // Close menu when clicking link & update active link
+    const navLinks = document.querySelectorAll(".nav-link");
+    navLinks.forEach(link => {
+      link.addEventListener("click", (e) => {
+        navLinks.forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+        if (navMenu) navMenu.classList.remove("mobile-active");
+        if (mobileNavToggle) {
+          const icon = mobileNavToggle.querySelector("i");
+          if (icon) {
+            icon.classList.add("fa-bars");
+            icon.classList.remove("fa-xmark");
+          }
         }
       });
     });
   }
+
+  // ScrollSpy Active Link Indicator on Scroll
+  const sections = document.querySelectorAll("section[id]");
+  window.addEventListener("scroll", () => {
+    let scrollY = window.pageYOffset;
+    sections.forEach(current => {
+      const sectionHeight = current.offsetHeight;
+      const sectionTop = current.offsetTop - 150;
+      const sectionId = current.getAttribute("id");
+      
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        document.querySelectorAll(".nav-link").forEach(l => {
+          l.classList.remove("active");
+          if (l.getAttribute("href") === `#${sectionId}`) {
+            l.classList.add("active");
+          }
+        });
+      }
+    });
+  });
 
   // Cart Drawer Toggles
   const cartBtn = document.getElementById("cartBtn");
