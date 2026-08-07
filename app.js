@@ -186,20 +186,19 @@ function renderProducts(items) {
       <span class="card-badge ${p.badgeColor}">${p.badge}</span>
       <div class="product-img-wrapper" onclick="app.showProductDetail(${p.id})">
         <img src="${p.image}" alt="${p.name}" class="product-img">
-        <div class="steam-level-tag">${p.steamLevel || '♨️ Soft & Fluffy'}</div>
       </div>
       <div class="product-info">
-        <div class="product-rating-row">
+        <div class="product-meta-row">
           <span class="star-rating"><i class="fa-solid fa-star"></i> ${p.rating || '4.9'}</span>
-          <span class="sold-count">Resep Cik Sien</span>
+          <span class="category-pill">${p.category === 'manis' ? 'Manis & Lumer' : 'Gurih & Daging'}</span>
         </div>
-        <h3 class="product-title" onclick="app.showProductDetail(${p.id})" style="cursor:pointer">${p.name}</h3>
+        <h3 class="product-title" onclick="app.showProductDetail(${p.id})">${p.name}</h3>
         <p class="product-desc">${p.desc}</p>
         
         <div class="product-price-row">
           <div class="product-price">Rp ${p.price.toLocaleString('id-ID')}</div>
-          <button class="add-cart-btn" onclick="event.stopPropagation(); app.addToCart(${p.id})" title="Tambah ke Keranjang">
-            <i class="fa-solid fa-cart-plus" style="pointer-events:none"></i> Tambah
+          <button class="add-cart-btn" onclick="event.stopPropagation(); app.addToCart(${p.id})" title="Tambah ke Keranjang" aria-label="Tambah ${p.name}">
+            <i class="fa-solid fa-plus"></i>
           </button>
         </div>
       </div>
