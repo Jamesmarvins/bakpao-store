@@ -443,6 +443,8 @@ h1, h2, h3, h4 {
   color: var(--text-muted);
   margin-bottom: 2rem;
   line-height: 1.65;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .hero-badges {
@@ -679,6 +681,8 @@ h1, h2, h3, h4 {
   font-size: 0.8rem;
   color: var(--text-muted);
   line-height: 1.4;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 @media (max-width: 992px) {
@@ -901,6 +905,8 @@ h1, h2, h3, h4 {
   color: var(--text-muted);
   line-height: 1.5;
   margin-bottom: 1.25rem;
+  text-align: justify;
+  text-justify: inter-word;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -1088,6 +1094,8 @@ h1, h2, h3, h4 {
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .reviewer-info {
@@ -1175,6 +1183,8 @@ h1, h2, h3, h4 {
   font-size: 0.92rem;
   display: none;
   line-height: 1.6;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .accordion-item.active .accordion-body {
@@ -1230,6 +1240,8 @@ h1, h2, h3, h4 {
   font-size: 0.88rem;
   color: var(--text-muted);
   line-height: 1.6;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* Payment & Shipping Partners Bar */
@@ -1291,6 +1303,9 @@ h1, h2, h3, h4 {
   color: var(--text-muted);
   font-size: 0.9rem;
   margin: 1.1rem 0 1.4rem;
+  line-height: 1.6;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .social-links {
