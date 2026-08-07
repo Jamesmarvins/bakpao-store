@@ -121,28 +121,62 @@
     </div>
   </section>
 
+  <!-- Feature Highlights Strip -->
+  <section class="features-strip">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fa-solid fa-cookie"></i></div>
+          <div class="feature-info">
+            <h4>Adonan Menul & Empuk</h4>
+            <p>Resep khas Cik Sien mekar sempurna, lembut & tidak nempel di langit-langit.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fa-solid fa-drumstick-bite"></i></div>
+          <div class="feature-info">
+            <h4>Isian Melimpah</h4>
+            <p>Potongan daging juicy & isian manis murni tanpa bahan pengawet.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fa-solid fa-fire"></i></div>
+          <div class="feature-info">
+            <h4>Dikukus Fresh Setiap Hari</h4>
+            <p>Garansi kelezatan terbaik, cocok dinikmati hangat atau stok frozen.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <div class="feature-info">
+            <h4>Pesan Praktis via WA</h4>
+            <p>Langsung terhubung dengan seller, siap kirim instant & Sameday.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Interactive Product Menu Section -->
   <section class="menu-section" id="menu">
     <div class="container">
       <div class="section-header text-center">
-        <span class="sub-title">KATALOG PILIHAN</span>
-        <h2 class="section-title">Menu Bakpao Spesial Favorit Anda</h2>
-        <p class="section-desc">Pilih varian rasa favoritmu. Bisa dipesan hangat siap makan atau beku (frozen) untuk stok rumah!</p>
+        <span class="sub-title">DAFTAR MENU BAKPAO CIK SIEN</span>
+        <h2 class="section-title">10 Varian Rasa Favorit Pilihan Anda</h2>
+        <p class="section-desc">Nikmati kelezatan bakpao rasa manis lumer dan gurih juicy. Harga terjangkau mulai Rp 10.000!</p>
       </div>
 
       <!-- Filter Controls & Search -->
       <div class="menu-controls">
         <div class="filter-tabs">
-          <button class="filter-btn active" data-filter="all">Semua Varian</button>
+          <button class="filter-btn active" data-filter="all"><i class="fa-solid fa-utensils"></i> Semua Varian (10 Rasa)</button>
           <button class="filter-btn" data-filter="gurih"><i class="fa-solid fa-drumstick-bite"></i> Gurih & Daging</button>
           <button class="filter-btn" data-filter="manis"><i class="fa-solid fa-cookie-bite"></i> Manis & Lumer</button>
-          <button class="filter-btn" data-filter="spesial"><i class="fa-solid fa-gem"></i> Premium Spesial</button>
-          <button class="filter-btn" data-filter="paket"><i class="fa-solid fa-box-open"></i> Paket Box Family</button>
         </div>
         
         <div class="search-box">
           <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" id="searchInput" placeholder="Cari varian bakpao (ex: Cokelat, Daging)...">
+          <input type="text" id="searchInput" placeholder="Cari varian bakpao (ex: Charsiu, Coklat, Keju)...">
         </div>
       </div>
 
@@ -152,6 +186,7 @@
       </div>
     </div>
   </section>
+
   <!-- Interactive Flavor Quiz Modal / Section -->
   <section class="quiz-section" id="quiz">
     <div class="container">
@@ -159,27 +194,23 @@
         <div class="quiz-header text-center">
           <span class="sub-title">BINGUNG PILIH RASA?</span>
           <h2>✨ Kuis Rekomendasi Rasa Bakpao</h2>
-          <p>Jawab 2 pertanyaan singkat ini untuk menemukan Bakpao yang paling cocok dengan selera Anda saat ini!</p>
+          <p>Jawab 2 pertanyaan singkat ini untuk menemukan Bakpao Cik Sien yang paling pas untuk Anda!</p>
         </div>
 
         <div class="quiz-step" id="quizStep1">
           <h3>1. Kamu lagi pengen sensasi rasa apa?</h3>
           <div class="quiz-options">
             <button class="quiz-opt-btn" onclick="app.selectQuizOpt(1, 'gurih')">
-              <span class="opt-icon">🥩</span>
-              <span class="opt-title">Gurih & Daging Mantap</span>
+              <span class="opt-icon">🍗</span>
+              <span class="opt-title">Ayam Gurih & Keju</span>
             </button>
             <button class="quiz-opt-btn" onclick="app.selectQuizOpt(1, 'manis')">
               <span class="opt-icon">🍫</span>
-              <span class="opt-title">Manis & Creamy</span>
+              <span class="opt-title">Manis Lumer (Coklat / Kacang)</span>
             </button>
-            <button class="quiz-opt-btn" onclick="app.selectQuizOpt(1, 'spesial')">
-              <span class="opt-icon">🧀</span>
-              <span class="opt-title">Keju & Salted Egg</span>
-            </button>
-            <button class="quiz-opt-btn" onclick="app.selectQuizOpt(1, 'paket')">
-              <span class="opt-icon">🎁</span>
-              <span class="opt-title">Paket Rame-rame / Box</span>
+            <button class="quiz-opt-btn" onclick="app.selectQuizOpt(1, 'babi')">
+              <span class="opt-icon">🥓</span>
+              <span class="opt-title">Olahan Babi Char Siu / Kecap</span>
             </button>
           </div>
         </div>

@@ -136,19 +136,6 @@ const products = [
     image: "images/charsiu.png",
     desc: "Bakpao Babi Char Siu khas Cik Sien warna merah menggoda, empuk dan ekstra juicy.",
     ingredients: "Daging babi Char Siu panggang, Honey glaze, Saus oriental Cik Sien, Minyak wijen."
-  },
-  {
-    id: 99,
-    name: "Paket Box Family (Isi 6 Mix)",
-    category: "paket",
-    badge: "Paket Box 🎁",
-    badgeColor: "gold",
-    price: 70000,
-    rating: "5.0",
-    steamLevel: "♨️♨️♨️ Mix 6 Pcs Box",
-    image: "images/ciksien_hero.png",
-    desc: "1 Gift Box lengkap isi 6 Pcs Bakpao Cik Sien (Bisa pilih campur varian manis & gurih).",
-    ingredients: "Pilihan 6 varian bakpao Cik Sien favorit dalam kemasan box eksklusif."
   }
 ];
 
@@ -524,24 +511,26 @@ function finishQuiz(texture) {
 
   if (type === 'gurih') {
     if (texture === 'rich') {
-      recommended = products.find(p => p.id === 2); // Daging Sapi Lada Hitam
+      recommended = products.find(p => p.id === 6); // Ayam Charsiu
+    } else if (texture === 'lumer') {
+      recommended = products.find(p => p.id === 7); // Ayam Keju
     } else {
-      recommended = products.find(p => p.id === 1); // Ayam Char Siu
+      recommended = products.find(p => p.id === 5); // Ayam Kecap
     }
   } else if (type === 'manis') {
-    if (texture === 'classic') {
-      recommended = products.find(p => p.id === 6); // Matcha Red Bean Velvet
+    if (texture === 'lumer') {
+      recommended = products.find(p => p.id === 4); // Coklat
+    } else if (texture === 'classic') {
+      recommended = products.find(p => p.id === 1); // Kacang Hijau
     } else {
-      recommended = products.find(p => p.id === 3); // Cokelat Belgian Lava
+      recommended = products.find(p => p.id === 2); // Kumbu Hitam
     }
-  } else if (type === 'spesial') {
+  } else if (type === 'babi') {
     if (texture === 'rich') {
-      recommended = products.find(p => p.id === 5); // Mozzarella Smoked Beef
+      recommended = products.find(p => p.id === 10); // Babi Charsiu
     } else {
-      recommended = products.find(p => p.id === 4); // Salted Egg Custard
+      recommended = products.find(p => p.id === 9); // Babi Kecap
     }
-  } else if (type === 'paket') {
-    recommended = products.find(p => p.id === 99); // Family Box Mix
   } else {
     recommended = products[Math.floor(Math.random() * products.length)];
   }
