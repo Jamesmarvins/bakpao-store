@@ -483,10 +483,33 @@
           <input type="tel" id="custPhone" placeholder="Nomor WhatsApp *" required class="form-input">
         </div>
         <div class="form-group">
-          <textarea id="custAddress" placeholder="Alamat Lengkap Pengiriman (atau Tulis Takeaway) *" required class="form-input" rows="2"></textarea>
+          <textarea id="custAddress" placeholder="Alamat Lengkap Pengiriman Gojek (atau Tulis Takeaway) *" required class="form-input" rows="2"></textarea>
         </div>
+        
         <div class="form-group">
-          <input type="text" id="custNotes" placeholder="Catatan Khusus (Opsional: Misal Jangan Pedas)" class="form-input">
+          <label for="servingConditionSelect" class="form-label" style="font-size:0.82rem; font-weight:700; color:var(--text-gold); margin-bottom:0.35rem; display:block;">
+            ♨️ Kondisi Penyajian Bakpao:
+          </label>
+          <select id="servingConditionSelect" class="form-input" style="cursor:pointer; background-color: #1A080C; color: #FFF;">
+            <option value="♨️ Bakpao Hangat (Siap Langsung Makan)">♨️ Bakpao Hangat (Siap Langsung Makan)</option>
+            <option value="❄️ Bakpao Frozen (Stok Freezer / Kukus Sendiri)">❄️ Bakpao Frozen (Untuk Stok / Kukus Sendiri)</option>
+            <option value="🔄 Campur (Sebagian Hangat & Sebagian Frozen)">🔄 Campur (Sebagian Hangat & Sebagian Frozen)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="deliveryTimeSelect" class="form-label" style="font-size:0.82rem; font-weight:700; color:var(--text-gold); margin-bottom:0.35rem; display:block;">
+            📅 Jadwal Pengiriman (Gojek):
+          </label>
+          <select id="deliveryTimeSelect" class="form-input" style="cursor:pointer; background-color: #1A080C; color: #FFF;">
+            <option value="🚀 Kirim Sekarang (GoSend Instant)">🚀 Kirim Sekarang (GoSend Instant)</option>
+            <option value="⏰ Kirim Jam Tertentu Hari Ini (Tulis di Catatan)">⏰ Kirim Jam Tertentu Hari Ini (Tulis di Catatan)</option>
+            <option value="📅 Pre-Order / Pesan Untuk Besok">📅 Pre-Order / Pesan Untuk Besok</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <input type="text" id="custNotes" placeholder="Catatan Khusus (Opsional: Misal Jam Kirim / Patokan Rumah)" class="form-input">
         </div>
         
         <button type="submit" class="btn btn-whatsapp-submit btn-block">

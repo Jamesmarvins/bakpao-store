@@ -459,15 +459,21 @@ function sendWhatsAppOrder() {
   const phone = sanitizeText(document.getElementById("custPhone").value.trim());
   const address = sanitizeText(document.getElementById("custAddress").value.trim());
   const notes = sanitizeText(document.getElementById("custNotes").value.trim());
-  const shipType = sanitizeText(document.getElementById("shippingTypeSelect").value);
+  
+  const servingElem = document.getElementById("servingConditionSelect");
+  const deliveryElem = document.getElementById("deliveryTimeSelect");
+  
+  const servingCondition = servingElem ? sanitizeText(servingElem.value) : "♨️ Bakpao Hangat";
+  const deliverySchedule = deliveryElem ? sanitizeText(deliveryElem.value) : "🚀 Kirim Sekarang (GoSend Instant)";
 
   const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
   let message = `*HALO BAKPAO CIK SIEN, SAYA MAU PESAN BAKPAO!* 🥟🔥\n\n`;
   message += `👤 *Nama:* ${name}\n`;
   message += `📞 *No WA:* ${phone}\n`;
-  message += `📍 *Alamat/Tipe:* ${address}\n`;
-  message += `❄️ *Kondisi Penyajian:* ${shipType}\n\n`;
+  message += `📍 *Alamat Pengiriman:* ${address}\n`;
+  message += `♨️ *Kondisi Penyajian:* ${servingCondition}\n`;
+  message += `📅 *Jadwal Kirim (Gojek):* ${deliverySchedule}\n\n`;
   message += `📋 *Rincian Pesanan:* \n`;
 
   cart.forEach((item, index) => {
@@ -476,7 +482,7 @@ function sendWhatsAppOrder() {
 
   message += `\n💰 *Total Pembayaran:* Rp ${total.toLocaleString('id-ID')}\n`;
   if (notes) message += `📝 *Catatan Khusus:* ${notes}\n`;
-  message += `\nMohon diproses dan diinfokan total ongkirnya ya. Terima kasih! 🙏`;
+  message += `\nMohon diproses dan diinfokan total ongkir GoSend nya ya. Terima kasih! 🙏`;
 
   const encodedMessage = encodeURIComponent(message);
   const waUrl = `https://wa.me/${STORE_WHATSAPP_NUMBER}?text=${encodedMessage}`;
