@@ -873,11 +873,11 @@ function showCourierModal() {
 
   body.innerHTML = `
     <div style="text-align:center; padding: 2rem 1.5rem;">
-      <span class="card-badge gold" style="position:static">PENGIRIMAN INSTANT</span>
-      <h2 style="color:#FFF; font-size:1.6rem; margin:0.8rem 0 0.5rem">GoSend & GrabExpress</h2>
-      <p style="color:#94A3B8; font-size:0.9rem; margin-bottom:1.5rem">Pengiriman Sameday / Instant langsung dari dapur hangat kami sampai ke rumah Anda dalam 30-60 menit.</p>
+      <span class="card-badge gold" style="position:static">PENGIRIMAN KHUSUS GOJEK</span>
+      <h2 style="color:#FFF; font-size:1.6rem; margin:0.8rem 0 0.5rem">Gojek (GoSend Instant / Sameday)</h2>
+      <p style="color:#94A3B8; font-size:0.9rem; margin-bottom:1.5rem">Pengiriman dilakukan via Gojek (GoSend) langsung sampai ke alamat Anda dengan aman dan terjamin.</p>
       <div style="background:rgba(245,158,11,0.15); border:1px solid #F59E0B; padding:1rem; border-radius:14px; color:#FCD34D; font-size:0.85rem; font-weight:700">
-        🔥 Bakpao dikemas dalam Thermal Bag khusus agar tetap hangat & lembut saat sampai!
+        🛵 Dikirim cepat via Gojek agar Bakpao Cik Sien tetap hangat & empuk saat dikonsumsi!
       </div>
     </div>
   `;
