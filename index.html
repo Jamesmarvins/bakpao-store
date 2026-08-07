@@ -12,6 +12,11 @@
   <meta name="google-site-verification" content="google24b2e04d6c856a0c">
   <meta name="google-site-verification" content="google24b2e04d6c856a0c.html">
   
+  <!-- Web App PWA Manifest & Touch Icons -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#F59E0B">
+  <link rel="apple-touch-icon" href="images/mascot_logo.png">
+  
   <!-- Favicon Bakpao -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%239B1B30' stroke='%23F59E0B' stroke-width='4'/><path d='M25 58C25 42 36 30 50 30C64 30 75 42 75 58C75 64 64 68 50 68C36 68 25 64 25 58Z' fill='%23FFFDF9' stroke='%23D97706' stroke-width='3'/></svg>">
   
@@ -472,6 +477,12 @@
       <i class="fa-brands fa-whatsapp"></i> Pesan Sekarang
     </a>
   </div>
+
+  <!-- Floating Share Store Button -->
+  <button class="floating-share-btn" id="shareStoreBtn" onclick="app.shareStoreToWhatsApp()" title="Bagikan Toko ke WhatsApp" aria-label="Bagikan Toko ke WhatsApp">
+    <i class="fa-solid fa-share-nodes"></i>
+    <span class="share-btn-text">Bagikan Toko</span>
+  </button>
 
   <script src="app.js"></script>
 </body>

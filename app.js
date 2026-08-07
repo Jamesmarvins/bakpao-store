@@ -1052,6 +1052,28 @@ function showPaxelModal() {
   modal.classList.add("active");
 }
 
+// Share Store Functionality
+function shareStoreToWhatsApp() {
+  const shareText = "Yuk cobain Bakpao Cik Sien! Putih, empuk, menul-menul & isian melimpah lezat. Pesan langsung di sini: https://bakpao-store.vercel.app/";
+  
+  if (navigator.share) {
+    navigator.share({
+      title: 'Bakpao Cik Sien',
+      text: shareText,
+      url: 'https://bakpao-store.vercel.app/'
+    }).catch(() => {
+      openWAShareUrl(shareText);
+    });
+  } else {
+    openWAShareUrl(shareText);
+  }
+}
+
+function openWAShareUrl(text) {
+  const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+  window.open(url, "_blank");
+}
+
 // Export global app helper
 window.app = {
   addToCart,
@@ -1072,5 +1094,6 @@ window.app = {
   showBankModal,
   showEwalletModal,
   showCourierModal,
-  showPaxelModal
+  showPaxelModal,
+  shareStoreToWhatsApp
 };
