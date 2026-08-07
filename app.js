@@ -42,7 +42,7 @@ const products = [
     price: 10000,
     rating: "4.8",
     steamLevel: "♨️♨️ Nutty Delight",
-    image: "images/bakpao_hero_1785314049366.png",
+    image: "images/kacang_wijen.png",
     desc: "Perpaduan kacang tanah tumbuk gurih dan wijen sangrai wangi melimpah.",
     ingredients: "Kacang tanah sangrai, Wijen putih & hitam, Gula karamel, Mentega."
   },
@@ -68,7 +68,7 @@ const products = [
     price: 12000,
     rating: "4.9",
     steamLevel: "♨️♨️♨️ Savory Chicken",
-    image: "images/charsiu.png",
+    image: "images/ayam_kecap.png",
     desc: "Daging ayam cincang dimasak bumbu kecap manis gurih dengan rempah meresap.",
     ingredients: "Daging ayam fillet cincang, Kecap manis resep Cik Sien, Bawang putih, Daun bawang."
   },
@@ -81,7 +81,7 @@ const products = [
     price: 12000,
     rating: "4.9",
     steamLevel: "♨️♨️♨️ Oriental Char Siu",
-    image: "images/charsiu.png",
+    image: "images/ayam_charsiu.png",
     desc: "Daging ayam potongan dadu dipadu saus Char Siu khas oriental merah manis juicy.",
     ingredients: "Daging ayam pilihan, Saus oriental Char Siu Cik Sien, Minyak wijen, Rempah."
   },
@@ -120,7 +120,7 @@ const products = [
     price: 15000,
     rating: "5.0",
     steamLevel: "♨️♨️♨️ Braised Pork",
-    image: "images/beef.png",
+    image: "images/babi_kecap.png",
     desc: "Daging babi empuk bumbu kecap pekat gurih juicy dengan resep warisan Cik Sien.",
     ingredients: "Daging babi pilihan, Kecap warisan Cik Sien, Pekak, Bawang putih, Rempah."
   },
@@ -133,7 +133,7 @@ const products = [
     price: 15000,
     rating: "5.0",
     steamLevel: "♨️♨️♨️ Authentic Pork Char Siu",
-    image: "images/charsiu.png",
+    image: "images/babi_charsiu.png",
     desc: "Bakpao Babi Char Siu khas Cik Sien warna merah menggoda, empuk dan ekstra juicy.",
     ingredients: "Daging babi Char Siu panggang, Honey glaze, Saus oriental Cik Sien, Minyak wijen."
   }
@@ -532,27 +532,29 @@ function finishQuiz(texture) {
   let recommended;
   const type = quizSelections.type;
 
-  if (type === 'gurih') {
-    if (texture === 'rich') {
+  if (type === 'ayam') {
+    if (texture === 'charsiu') {
       recommended = products.find(p => p.id === 6); // Ayam Charsiu
-    } else if (texture === 'lumer') {
+    } else if (texture === 'keju_nutty') {
       recommended = products.find(p => p.id === 7); // Ayam Keju
     } else {
       recommended = products.find(p => p.id === 5); // Ayam Kecap
     }
-  } else if (type === 'manis') {
-    if (texture === 'lumer') {
-      recommended = products.find(p => p.id === 4); // Coklat
-    } else if (texture === 'classic') {
-      recommended = products.find(p => p.id === 1); // Kacang Hijau
-    } else {
-      recommended = products.find(p => p.id === 2); // Kumbu Hitam
-    }
   } else if (type === 'babi') {
-    if (texture === 'rich') {
+    if (texture === 'charsiu') {
       recommended = products.find(p => p.id === 10); // Babi Charsiu
     } else {
       recommended = products.find(p => p.id === 9); // Babi Kecap
+    }
+  } else if (type === 'manis') {
+    if (texture === 'keju_nutty') {
+      recommended = products.find(p => p.id === 8); // Keju
+    } else if (texture === 'charsiu') {
+      recommended = products.find(p => p.id === 3); // Kacang Wijen
+    } else if (texture === 'kecap') {
+      recommended = products.find(p => p.id === 2); // Kumbu Hitam
+    } else {
+      recommended = products.find(p => p.id === 4); // Coklat
     }
   } else {
     recommended = products[Math.floor(Math.random() * products.length)];
