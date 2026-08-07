@@ -95,21 +95,21 @@ const products = [
     rating: "5.0",
     steamLevel: "♨️♨️♨️ Cheesy Chicken",
     image: "images/keju.png",
-    desc: "Olahan daging ayam gurih empuk berpadu isian keju spesial khas Cik Sien.",
-    ingredients: "Daging ayam fillet, Keju pilihan, Bumbu rempah lezat Cik Sien."
+    desc: "Olahan daging ayam gurih empuk berpadu isian keju olahan gurih khas Cik Sien (tekstur keju mantap, bukan keju lumer).",
+    ingredients: "Daging ayam fillet pilihan, Keju olahan gurih (bukan keju lumer), Bumbu rempah lezat Cik Sien."
   },
   {
     id: 8,
     name: "Keju",
     category: "manis",
-    badge: "Keju Spesial 🧀",
+    badge: "Keju Parut 🧀",
     badgeColor: "gold",
     price: 10000,
     rating: "4.9",
     steamLevel: "♨️♨️ Rich Cheese",
     image: "images/keju.png",
-    desc: "Isian keju spesial resep Cik Sien dengan perpaduan gurih dan manis yang pas.",
-    ingredients: "Keju pilihan Cik Sien, Susu, Mentega, Ragi bakpao empuk menul-menul."
+    desc: "Isian keju parut olahan khas Cik Sien dengan perpaduan rasa gurih dan manis yang pas (tekstur keju padat, bukan keju lumer).",
+    ingredients: "Keju parut olahan pilihan Cik Sien (bukan keju lumer), Susu, Mentega, Ragi bakpao empuk menul-menul."
   },
   {
     id: 9,
@@ -493,20 +493,31 @@ function showProductDetail(id) {
   const modal = document.getElementById("productModalOverlay");
 
   body.innerHTML = `
-    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center; padding: 1.5rem;">
-      <img src="${p.image}" alt="${p.name}" style="width:100%; border-radius:16px; object-fit:cover;">
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; align-items: center; padding: 1.25rem;">
+      <div style="position:relative; width:100%; border-radius:18px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.5);">
+        <img src="${p.image}" alt="${p.name}" style="width:100%; height:260px; object-fit:cover; display:block;">
+        <span class="card-badge ${p.badgeColor}" style="position:absolute; top:12px; left:12px;">${p.badge}</span>
+      </div>
       <div>
-        <span class="card-badge ${p.badgeColor}" style="position:static">${p.badge}</span>
-        <h2 style="margin: 0.75rem 0 0.4rem; font-size:1.5rem; color:#FFFFFF">${p.name}</h2>
-        <p style="color:#CBD5E1; font-size:0.9rem; margin-bottom: 1.2rem; line-height:1.5">${p.desc}</p>
-        <div style="background:rgba(245, 158, 11, 0.12); border:1px solid rgba(245, 158, 11, 0.3); padding: 0.85rem; border-radius: 12px; font-size:0.85rem; color:#FCD34D; margin-bottom: 1.2rem;">
-          <strong>🌱 Bahan Utama:</strong> ${p.ingredients}
+        <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.4rem; font-size:0.85rem; color:#FBBF24; font-weight:800;">
+          <i class="fa-solid fa-star"></i> ${p.rating || '4.9'} • <span style="color:#CBD5E1; font-weight:600;">Bakpao Cik Sien</span>
         </div>
-        <div style="font-size:1.5rem; font-weight:800; color:#F59E0B; margin-bottom: 1.2rem">
-          Rp ${p.price.toLocaleString('id-ID')}
+        <h2 style="margin: 0 0 0.5rem; font-size:1.6rem; font-weight:900; color:#FFFFFF">${p.name}</h2>
+        <p style="color:#CBD5E1; font-size:0.9rem; margin-bottom: 1.2rem; line-height:1.6">${p.desc}</p>
+        
+        <div style="background:rgba(245, 158, 11, 0.1); border:1px solid rgba(245, 158, 11, 0.25); padding: 0.85rem 1rem; border-radius: 14px; font-size:0.84rem; color:#FCD34D; margin-bottom: 1.25rem; line-height:1.5;">
+          <strong style="color:#FFF;">🌱 Komposisi Bahan:</strong> ${p.ingredients}
         </div>
-        <button class="btn btn-primary btn-block" onclick="app.addToCart(${p.id}); document.getElementById('productModalOverlay').classList.remove('active');">
-          <i class="fa-solid fa-cart-plus"></i> Tambah ke Keranjang
+        
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom: 1.25rem; background:rgba(0,0,0,0.3); padding:0.75rem 1rem; border-radius:14px; border:1px solid rgba(255,255,255,0.08);">
+          <span style="font-size:0.85rem; color:#94A3B8; font-weight:700;">Harga Satuan</span>
+          <div style="font-size:1.45rem; font-weight:900; color:#F59E0B">
+            Rp ${p.price.toLocaleString('id-ID')}
+          </div>
+        </div>
+        
+        <button class="btn btn-primary btn-block" onclick="app.addToCart(${p.id}); document.getElementById('productModalOverlay').classList.remove('active');" style="padding:0.85rem; font-size:0.95rem;">
+          <i class="fa-solid fa-cart-plus"></i> Tambah ke Keranjang Belanja
         </button>
       </div>
     </div>
