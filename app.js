@@ -95,8 +95,8 @@ const products = [
     rating: "5.0",
     steamLevel: "♨️♨️♨️ Cheesy Chicken",
     image: "images/keju.png",
-    desc: "Olahan daging ayam gurih empuk berpadu isian keju olahan gurih khas Cik Sien (tekstur keju mantap, bukan keju lumer).",
-    ingredients: "Daging ayam fillet pilihan, Keju olahan gurih (bukan keju lumer), Bumbu rempah lezat Cik Sien."
+    desc: "Olahan daging ayam gurih empuk berpadu dengan keju parut gurih khas Cik Sien.",
+    ingredients: "Daging ayam fillet pilihan, Keju parut olahan gurih, Bumbu rempah lezat Cik Sien."
   },
   {
     id: 8,
@@ -108,8 +108,8 @@ const products = [
     rating: "4.9",
     steamLevel: "♨️♨️ Rich Cheese",
     image: "images/keju.png",
-    desc: "Isian keju parut olahan khas Cik Sien dengan perpaduan rasa gurih dan manis yang pas (tekstur keju padat, bukan keju lumer).",
-    ingredients: "Keju parut olahan pilihan Cik Sien (bukan keju lumer), Susu, Mentega, Ragi bakpao empuk menul-menul."
+    desc: "Isian keju parut khas Cik Sien dengan perpaduan cita rasa gurih dan manis yang pas.",
+    ingredients: "Keju parut pilihan Cik Sien, Susu, Mentega, Ragi bakpao empuk menul-menul."
   },
   {
     id: 9,
