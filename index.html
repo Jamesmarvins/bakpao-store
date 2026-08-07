@@ -443,6 +443,9 @@
         <div class="form-group">
           <input type="text" id="custNotes" placeholder="Catatan Khusus (Opsional: Misal Jam Kirim / Patokan Rumah)" class="form-input">
         </div>
+
+        <!-- Honeypot Anti-Bot Security Field (Hidden from Real Humans) -->
+        <input type="text" id="custWebsiteHoneypot" name="user_website_hp" style="display:none !important; position:absolute; left:-9999px; opacity:0; pointer-events:none;" tabindex="-1" autocomplete="off">
         
         <button type="submit" class="btn btn-whatsapp-submit btn-block">
           <i class="fa-brands fa-whatsapp"></i> Kirim Pesanan via WhatsApp

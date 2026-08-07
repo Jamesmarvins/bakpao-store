@@ -61,6 +61,14 @@ body {
     radial-gradient(circle at 85% 65%, rgba(217, 119, 6, 0.06) 0%, transparent 50%);
 }
 
+/* Anti-Text Copy & Recipe Theft Protection */
+.product-card, .product-desc, .faq-card, .feature-item, .hero-title, .hero-desc {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 /* Container Alignment */
 .container {
   width: 100%;

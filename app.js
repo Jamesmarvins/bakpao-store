@@ -568,8 +568,15 @@ function enforceTabnabbingProtection() {
   });
 }
 
-// WhatsApp Order Formatting & Redirection with Anti-Spam Rate Limiter
+// WhatsApp Order Formatting & Redirection with Anti-Spam Rate Limiter & Honeypot
 function sendWhatsAppOrder() {
+  // Honeypot Anti-Bot Security Trigger Check
+  const honeypot = document.getElementById("custWebsiteHoneypot");
+  if (honeypot && honeypot.value !== "") {
+    showToastNotification("🤖 Permintaan ditolak (Anti-Bot Security Triggered).");
+    return;
+  }
+
   if (cart.length === 0) {
     showToastNotification("🛒 Keranjang belanja Anda masih kosong!");
     return;
