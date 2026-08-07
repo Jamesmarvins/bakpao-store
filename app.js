@@ -1,110 +1,154 @@
 /**
- * BAO GOURMET - INTERACTIVE APPLICATION LOGIC
- * Master Steamed Buns Store
+ * BAKPAO CIK SIEN - INTERACTIVE APPLICATION LOGIC
+ * Putih, Lembut, Menul-Menul!
  */
 
-const STORE_WHATSAPP_NUMBER = "6281234567890"; // Ganti dengan nomor WhatsApp Penjual (format 62...)
+const STORE_WHATSAPP_NUMBER = "6281329816838"; // WhatsApp: 0813-2981-6838
 
-// Products Database
+// Products Database - Exact Menu & Pricing from Bakpao Cik Sien Menu Poster
 const products = [
   {
     id: 1,
-    name: "Bakpao Ayam Char Siu Premium",
-    category: "gurih",
-    badge: "Best Seller 🔥",
-    badgeColor: "gold",
-    price: 12000,
+    name: "Kacang Hijau",
+    category: "manis",
+    badge: "Favorit Klasik 🌿",
+    badgeColor: "green",
+    price: 10000,
     rating: "4.9",
-    steamLevel: "♨️♨️♨️ Extra Fluffy",
-    image: "images/hero.png",
-    desc: "Daging ayam pilihan dipotong dadu dengan saus oriental manis gurih juicy khas Char Siu.",
-    ingredients: "Tepung gandum murni, Daging Ayam Fillet, Saus Oriental, Minyak Wijen, Rempah Spesial."
+    steamLevel: "♨️♨️♨️ Soft & Sweet",
+    image: "images/kacang_hijau.png",
+    desc: "Bakpao empuk menul-menul dengan isian pasta kacang hijau lembut manis pas.",
+    ingredients: "Tepung terigu pilihan, Kacang hijau murni, Gula pasir, Daun pandan wangi."
   },
   {
     id: 2,
-    name: "Bakpao Daging Sapi Lada Hitam",
-    category: "gurih",
-    badge: "Favorite Chef 🥩",
-    badgeColor: "red",
-    price: 15000,
+    name: "Kumbu Hitam",
+    category: "manis",
+    badge: "Best Seller 🖤",
+    badgeColor: "gold",
+    price: 10000,
     rating: "4.9",
-    fluffyScore: 98,
-    lavaScore: 95,
-    steamLevel: "♨️♨️♨️ Extra Fluffy",
-    image: "images/beef.png",
-    desc: "Cincangan daging sapi tenderloin berpadu saus lada hitam gurih pedas hangat.",
-    ingredients: "Daging Sapi Tenderloin Cincang, Lada Hitam Sarawak, Bawang Bombay, Mentega."
+    steamLevel: "♨️♨️♨️ Rich & Smooth",
+    image: "images/kumbu_hitam.png",
+    desc: "Isian kumbu hitam khas resep tradisional Cik Sien yang halus, manis gurih aromatik.",
+    ingredients: "Kumbu hitam pilihan, Gula merah kelapa, Adonan ragi bakpao khas Cik Sien."
   },
   {
     id: 3,
-    name: "Bakpao Cokelat Belgian Lava",
+    name: "Kacang Wijen",
+    category: "manis",
+    badge: "Wangi Wijen 🥜",
+    badgeColor: "gold",
+    price: 10000,
+    rating: "4.8",
+    steamLevel: "♨️♨️ Nutty Delight",
+    image: "images/bakpao_hero_1785314049366.png",
+    desc: "Perpaduan kacang tanah tumbuk gurih dan wijen sangrai wangi melimpah.",
+    ingredients: "Kacang tanah sangrai, Wijen putih & hitam, Gula karamel, Mentega."
+  },
+  {
+    id: 4,
+    name: "Coklat",
     category: "manis",
     badge: "Super Lumer 🍫",
     badgeColor: "gold",
     price: 10000,
-    rating: "4.9",
-    fluffyScore: 99,
-    lavaScore: 100,
-    steamLevel: "♨️♨️♨️ Melted Lava",
-    image: "images/chocolate.png",
-    desc: "Isian Belgian Dark Chocolate 70% melimpah yang lumer seketika begitu digigit.",
-    ingredients: "Cokelat Belgian Premium, Susu Murni, Mentega Gourmet, Adonan Ragi Spesial."
-  },
-  {
-    id: 4,
-    name: "Bakpao Salted Egg Custard",
-    category: "spesial",
-    badge: "Limited Edition 🌟",
-    badgeColor: "gold",
-    price: 14000,
     rating: "5.0",
-    fluffyScore: 97,
-    lavaScore: 99,
-    steamLevel: "♨️♨️♨️ Golden Lava",
-    image: "images/salted_egg.png",
-    desc: "Perpaduan unik telur asin gurih creaminess tinggi dan rasa manis lembut menggoda.",
-    ingredients: "Kuning Telur Asin Pilihan, Butter Cream, Susu Evaporasi, Gula Kelapa."
+    steamLevel: "♨️♨️♨️ Melted Chocolate",
+    image: "images/chocolate.png",
+    desc: "Isian cokelat kaya rasa yang lumer meleleh hangat begitu digigit.",
+    ingredients: "Cokelat premium, Susu murni, Mentega gourmet, Adonan bakpao menul-menul."
   },
   {
     id: 5,
-    name: "Bakpao Mozzarella Smoked Beef",
-    category: "spesial",
-    badge: "Keju Molor 🧀",
+    name: "Ayam Kecap",
+    category: "gurih",
+    badge: "Gurih Manis 🍗",
     badgeColor: "red",
-    price: 15000,
+    price: 12000,
     rating: "4.9",
-    fluffyScore: 96,
-    lavaScore: 98,
-    steamLevel: "♨️♨️ Extra Cheesy",
-    image: "images/cheese.png",
-    desc: "Daging sapi asap premium dibalut keju Mozzarella mulur gurih sempurna.",
-    ingredients: "Keju Mozzarella Premium, Daging Sapi Asap (Smoked Beef), Saus Keju."
+    steamLevel: "♨️♨️♨️ Savory Chicken",
+    image: "images/charsiu.png",
+    desc: "Daging ayam cincang dimasak bumbu kecap manis gurih dengan rempah meresap.",
+    ingredients: "Daging ayam fillet cincang, Kecap manis resep Cik Sien, Bawang putih, Daun bawang."
   },
   {
     id: 6,
-    name: "Bakpao Matcha Red Bean Velvet",
+    name: "Ayam Charsiu",
+    category: "gurih",
+    badge: "Favorit Spesial 🥓",
+    badgeColor: "red",
+    price: 12000,
+    rating: "4.9",
+    steamLevel: "♨️♨️♨️ Oriental Char Siu",
+    image: "images/charsiu.png",
+    desc: "Daging ayam potongan dadu dipadu saus Char Siu khas oriental merah manis juicy.",
+    ingredients: "Daging ayam pilihan, Saus oriental Char Siu Cik Sien, Minyak wijen, Rempah."
+  },
+  {
+    id: 7,
+    name: "Ayam Keju",
+    category: "gurih",
+    badge: "Lumer Keju 🧀",
+    badgeColor: "gold",
+    price: 13000,
+    rating: "5.0",
+    steamLevel: "♨️♨️♨️ Cheesy Chicken",
+    image: "images/cheese.png",
+    desc: "Olahan daging ayam gurih lembut berpadu lelehan keju melimpah di dalamnya.",
+    ingredients: "Daging ayam fillet, Keju melt & cheddar, Bumbu rempah lezat Cik Sien."
+  },
+  {
+    id: 8,
+    name: "Keju",
     category: "manis",
-    badge: "Authentic Japan 🍵",
-    badgeColor: "green",
-    price: 11000,
-    rating: "4.7",
-    steamLevel: "♨️♨️ Smooth Creamy",
-    image: "images/chocolate.png",
-    desc: "Kombinasi pasta kacang merah manis lembut dengan cream matcha Uji Jepang aromatik.",
-    ingredients: "Matcha Uji Grade A, Pasta Kacang Merah Halus, Susu Oat."
+    badge: "Keju Super 🧀",
+    badgeColor: "gold",
+    price: 10000,
+    rating: "4.8",
+    steamLevel: "♨️♨️ Creamy Cheese",
+    image: "images/cheese.png",
+    desc: "Olahan keju creamy manis gurih yang meleleh sempurna saat dikukus hangat.",
+    ingredients: "Keju spesial, Susu evaporasi, Butter cream, Ragi bakpao empuk."
+  },
+  {
+    id: 9,
+    name: "Babi Kecap",
+    category: "gurih",
+    badge: "Resep Warisan 🥩",
+    badgeColor: "red",
+    price: 15000,
+    rating: "5.0",
+    steamLevel: "♨️♨️♨️ Braised Pork",
+    image: "images/beef.png",
+    desc: "Daging babi empuk bumbu kecap pekat gurih juicy dengan resep warisan Cik Sien.",
+    ingredients: "Daging babi pilihan, Kecap warisan Cik Sien, Pekak, Bawang putih, Rempah."
+  },
+  {
+    id: 10,
+    name: "Babi Charsiu",
+    category: "gurih",
+    badge: "Paling Laris 🔥",
+    badgeColor: "red",
+    price: 15000,
+    rating: "5.0",
+    steamLevel: "♨️♨️♨️ Authentic Pork Char Siu",
+    image: "images/charsiu.png",
+    desc: "Bakpao Babi Char Siu khas Cik Sien warna merah menggoda, empuk dan ekstra juicy.",
+    ingredients: "Daging babi Char Siu panggang, Honey glaze, Saus oriental Cik Sien, Minyak wijen."
   },
   {
     id: 99,
-    name: "Family Box (Isi 6 Varian Mix)",
+    name: "Paket Box Family (Isi 6 Mix)",
     category: "paket",
     badge: "Paket Box 🎁",
     badgeColor: "gold",
-    price: 75000,
+    price: 70000,
     rating: "5.0",
-    steamLevel: "♨️♨️♨️ Mixed Flavors",
-    image: "images/chocolate.png",
-    desc: "1 Box lengkap isi 2x Ayam Char Siu, 2x Cokelat Belgian, 1x Salted Egg, 1x Mozzarella Beef.",
-    ingredients: "Kombinasi 6 Bakpao Terfavorit dalam kemasan Gift Box Eksklusif."
+    steamLevel: "♨️♨️♨️ Mix 6 Pcs Box",
+    image: "images/ciksien_hero.png",
+    desc: "1 Gift Box lengkap isi 6 Pcs Bakpao Cik Sien (Bisa pilih campur varian manis & gurih).",
+    ingredients: "Pilihan 6 varian bakpao Cik Sien favorit dalam kemasan box eksklusif."
   }
 ];
 
@@ -127,10 +171,10 @@ function syncWhatsAppLinks() {
   const waLinkFooter = document.getElementById("waLink");
   
   if (waBtnHeader) {
-    waBtnHeader.href = `https://wa.me/${STORE_WHATSAPP_NUMBER}?text=Halo%20Bao%20Gourmet%2C%20saya%20mau%20pesan%20Bakpao`;
+    waBtnHeader.href = `https://wa.me/${STORE_WHATSAPP_NUMBER}?text=Halo%20Bakpao%20Cik%20Sien%2C%20saya%20mau%20pesan%20Bakpao`;
   }
   if (waLinkFooter) {
-    waLinkFooter.href = `https://wa.me/${STORE_WHATSAPP_NUMBER}?text=Halo%20Bao%20Gourmet`;
+    waLinkFooter.href = `https://wa.me/${STORE_WHATSAPP_NUMBER}?text=Halo%20Bakpao%20Cik%20Sien`;
   }
 }
 
@@ -409,7 +453,7 @@ function sendWhatsAppOrder() {
 
   const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
-  let message = `*HALO BAO GOURMET, SAYA MAU PESAN BAKPAO!* 🥟🔥\n\n`;
+  let message = `*HALO BAKPAO CIK SIEN, SAYA MAU PESAN BAKPAO!* 🥟🔥\n\n`;
   message += `👤 *Nama:* ${name}\n`;
   message += `📞 *No WA:* ${phone}\n`;
   message += `📍 *Alamat/Tipe:* ${address}\n`;

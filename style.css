@@ -5,32 +5,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Calistoga&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap');
 
 :root {
-  /* Color Palette - Premium Warm Charcoal & Steamed Gold Theme */
-  --bg-main: #0B0F17;        /* Ultra Dark Velvet Base */
-  --bg-card: #151D2A;        /* Elevated Dark Card */
-  --bg-card-hover: #1E293B;  /* Hover Card State */
+  /* Color Palette - Festive Crimson & Imperial Gold Theme for Bakpao Cik Sien */
+  --bg-main: #120306;        /* Deep Crimson Dark Base */
+  --bg-card: #22080E;        /* Elevated Dark Crimson Card */
+  --bg-card-hover: #340E16;  /* Hover Card State */
   
-  --primary: #F59E0B;        /* Steamed Amber Gold */
-  --primary-glow: #FBBF24;   /* Bright Gold Glow */
+  --primary: #F59E0B;        /* Steamed Imperial Gold */
+  --primary-glow: #FCD34D;   /* Bright Gold Glow */
   --primary-deep: #D97706;   /* Deep Warm Amber */
-  --secondary: #EF4444;      /* Hot Crimson Red */
+  --secondary: #DC2626;      /* Hot Festive Red */
   --accent-green: #10B981;   /* Fresh Green */
   
-  --text-main: #F8FAFC;      /* Pure Light Text */
-  --text-muted: #94A3B8;     /* Muted Grey Text */
+  --text-main: #FFFDF9;      /* Warm Light Text */
+  --text-muted: #CBD5E1;     /* Muted Grey Text */
   --text-gold: #FCD34D;      /* Accent Gold Text */
 
-  --border-glass: rgba(245, 158, 11, 0.22);
-  --border-light: rgba(255, 255, 255, 0.08);
+  --border-glass: rgba(245, 158, 11, 0.3);
+  --border-light: rgba(245, 158, 11, 0.15);
 
   /* Shadows & Glows */
-  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.35);
-  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 35px rgba(245, 158, 11, 0.3);
-  --shadow-card: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 1px rgba(245, 158, 11, 0.3);
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 35px rgba(245, 158, 11, 0.35);
+  --shadow-card: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 1px rgba(245, 158, 11, 0.3);
 
   /* Typography */
-  --font-display: 'Calistoga', serif;
+  --font-display: 'Outfit', serif;
   --font-heading: 'Outfit', sans-serif;
   --font-sans: 'Plus Jakarta Sans', sans-serif;
 
@@ -417,7 +417,7 @@ h1, h2, h3, h4 {
   font-size: 3.4rem;
   font-weight: 900;
   color: #FFF;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.5rem;
   letter-spacing: -1.2px;
 }
 
@@ -425,6 +425,17 @@ h1, h2, h3, h4 {
   background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 50%, #EF4444 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle-tagline {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-gold);
+  background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.5px;
 }
 
 .hero-desc {
