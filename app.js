@@ -89,27 +89,27 @@ const products = [
     id: 7,
     name: "Ayam Keju",
     category: "gurih",
-    badge: "Lumer Keju 🧀",
+    badge: "Gurih Keju 🧀",
     badgeColor: "gold",
     price: 13000,
     rating: "5.0",
     steamLevel: "♨️♨️♨️ Cheesy Chicken",
-    image: "images/cheese.png",
-    desc: "Olahan daging ayam gurih lembut berpadu lelehan keju melimpah di dalamnya.",
-    ingredients: "Daging ayam fillet, Keju melt & cheddar, Bumbu rempah lezat Cik Sien."
+    image: "images/keju.png",
+    desc: "Olahan daging ayam gurih empuk berpadu isian keju spesial khas Cik Sien.",
+    ingredients: "Daging ayam fillet, Keju pilihan, Bumbu rempah lezat Cik Sien."
   },
   {
     id: 8,
     name: "Keju",
     category: "manis",
-    badge: "Keju Super 🧀",
+    badge: "Keju Spesial 🧀",
     badgeColor: "gold",
     price: 10000,
-    rating: "4.8",
-    steamLevel: "♨️♨️ Creamy Cheese",
-    image: "images/cheese.png",
-    desc: "Olahan keju creamy manis gurih yang meleleh sempurna saat dikukus hangat.",
-    ingredients: "Keju spesial, Susu evaporasi, Butter cream, Ragi bakpao empuk."
+    rating: "4.9",
+    steamLevel: "♨️♨️ Rich Cheese",
+    image: "images/keju.png",
+    desc: "Isian keju spesial resep Cik Sien dengan perpaduan gurih dan manis yang pas.",
+    ingredients: "Keju pilihan Cik Sien, Susu, Mentega, Ragi bakpao empuk menul-menul."
   },
   {
     id: 9,
