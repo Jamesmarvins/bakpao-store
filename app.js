@@ -3,6 +3,15 @@
  * Putih, Lembut, Menul-Menul!
  */
 
+// Anti-Clickjacking & Security Guard (Prevent embedding in malicious external iframes/ads)
+if (window.self !== window.top) {
+  try {
+    window.top.location.href = window.self.location.href;
+  } catch (e) {
+    document.body.innerHTML = "<h2 style='color:red;text-align:center;margin-top:20%'>Access Denied for Security Reasons</h2>";
+  }
+}
+
 const STORE_WHATSAPP_NUMBER = "6281329816838"; // WhatsApp: 0813-2981-6838
 
 // Products Database - Exact Menu & Pricing from Bakpao Cik Sien Menu Poster
