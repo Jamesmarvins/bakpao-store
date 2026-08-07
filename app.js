@@ -186,15 +186,20 @@ function renderProducts(items) {
       <span class="card-badge ${p.badgeColor}">${p.badge}</span>
       <div class="product-img-wrapper" onclick="app.showProductDetail(${p.id})">
         <img src="${p.image}" alt="${p.name}" class="product-img">
+        <div class="steam-level-tag">${p.steamLevel || '♨️ Soft & Fluffy'}</div>
       </div>
       <div class="product-info">
+        <div class="product-rating-row">
+          <span class="star-rating"><i class="fa-solid fa-star"></i> ${p.rating || '4.9'}</span>
+          <span class="sold-count">Resep Cik Sien</span>
+        </div>
         <h3 class="product-title" onclick="app.showProductDetail(${p.id})" style="cursor:pointer">${p.name}</h3>
         <p class="product-desc">${p.desc}</p>
         
         <div class="product-price-row">
           <div class="product-price">Rp ${p.price.toLocaleString('id-ID')}</div>
           <button class="add-cart-btn" onclick="event.stopPropagation(); app.addToCart(${p.id})" title="Tambah ke Keranjang">
-            <i class="fa-solid fa-plus" style="pointer-events:none"></i>
+            <i class="fa-solid fa-cart-plus" style="pointer-events:none"></i> Tambah
           </button>
         </div>
       </div>
@@ -324,6 +329,24 @@ function toggleCart() {
   if (cartOverlay) cartOverlay.classList.toggle("active");
 }
 
+// Toast Notification Helper
+function showToastNotification(msg) {
+  let toast = document.getElementById("appToastNotification");
+  if (!toast) {
+    toast = document.createElement("div");
+    toast.id = "appToastNotification";
+    toast.className = "app-toast-notification";
+    document.body.appendChild(toast);
+  }
+  toast.innerHTML = msg;
+  toast.classList.add("active");
+
+  if (toast.hideTimer) clearTimeout(toast.hideTimer);
+  toast.hideTimer = setTimeout(() => {
+    toast.classList.remove("active");
+  }, 2500);
+}
+
 // Cart Functions
 function addToCart(productId) {
   const idNum = Number(productId);
@@ -338,6 +361,7 @@ function addToCart(productId) {
   }
 
   updateCartUI();
+  showToastNotification(`✨ <strong>1x ${product.name}</strong> ditambahkan ke keranjang!`);
   
   // Open Cart Drawer
   const cartDrawer = document.getElementById("cartDrawer");
