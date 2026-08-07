@@ -150,13 +150,15 @@ const products = [
 
 // App State
 let cart = [];
-let quizSelections = {};
+let isSubmittingOrder = false;
 
 // Initialize App
 document.addEventListener("DOMContentLoaded", () => {
+  validateCartIntegrity();
   renderProducts(products);
   initSteamParticles();
   initEventListeners();
+  initImageProtection();
   updateCartUI();
   syncWhatsAppLinks();
 });
@@ -481,15 +483,70 @@ function sanitizeText(str) {
   });
 }
 
-// WhatsApp Order Formatting & Redirection
+// Phone Number Sanitization & Formatting Guard
+function sanitizePhone(phoneStr) {
+  if (!phoneStr) return "";
+  let clean = String(phoneStr).replace(/[^0-9]/g, "");
+  if (clean.startsWith("0")) {
+    clean = "62" + clean.substring(1);
+  }
+  return clean;
+}
+
+// LocalStorage Cart Integrity Validation Guard
+function validateCartIntegrity() {
+  if (!Array.isArray(cart)) {
+    cart = [];
+    return;
+  }
+  cart = cart.filter(item => {
+    const isValidProduct = products.some(p => p.id === item.id);
+    const isValidQty = Number.isInteger(item.qty) && item.qty > 0 && item.qty < 100;
+    const isValidPrice = typeof item.price === "number" && item.price > 0;
+    return isValidProduct && isValidQty && isValidPrice;
+  });
+}
+
+// Anti Photo Theft Guard (Prevent Right-Click & Drag on Images)
+function initImageProtection() {
+  document.addEventListener("contextmenu", (e) => {
+    if (e.target.tagName === "IMG") {
+      e.preventDefault();
+      showToastNotification("🔒 Foto produk dilindungi hak cipta Bakpao Cik Sien.");
+    }
+  });
+  document.addEventListener("dragstart", (e) => {
+    if (e.target.tagName === "IMG") {
+      e.preventDefault();
+    }
+  });
+}
+
+// WhatsApp Order Formatting & Redirection with Anti-Spam Rate Limiter
 function sendWhatsAppOrder() {
   if (cart.length === 0) {
-    alert("Keranjang belanja Anda masih kosong!");
+    showToastNotification("🛒 Keranjang belanja Anda masih kosong!");
     return;
   }
 
+  // Rate Limiting Anti-Spam Check
+  if (isSubmittingOrder) {
+    showToastNotification("⏳ Mohon tunggu sebentar sebelum mengirim ulang pesanan.");
+    return;
+  }
+
+  const rawPhone = document.getElementById("custPhone").value.trim();
+  const cleanPhone = sanitizePhone(rawPhone);
+
+  if (cleanPhone.length < 9) {
+    showToastNotification("⚠️ Mohon masukkan nomor WhatsApp yang valid.");
+    return;
+  }
+
+  isSubmittingOrder = true;
+  setTimeout(() => { isSubmittingOrder = false; }, 4000);
+
   const name = sanitizeText(document.getElementById("custName").value.trim());
-  const phone = sanitizeText(document.getElementById("custPhone").value.trim());
   const address = sanitizeText(document.getElementById("custAddress").value.trim());
   const notes = sanitizeText(document.getElementById("custNotes").value.trim());
   
@@ -503,7 +560,7 @@ function sendWhatsAppOrder() {
 
   let message = `*HALO BAKPAO CIK SIEN, SAYA MAU PESAN BAKPAO!* 🥟🔥\n\n`;
   message += `👤 *Nama:* ${name}\n`;
-  message += `📞 *No WA:* ${phone}\n`;
+  message += `📞 *No WA:* ${cleanPhone}\n`;
   message += `📍 *Alamat Pengiriman:* ${address}\n`;
   message += `♨️ *Kondisi Penyajian:* ${servingCondition}\n`;
   message += `📅 *Jadwal Kirim (Gojek):* ${deliverySchedule}\n\n`;
